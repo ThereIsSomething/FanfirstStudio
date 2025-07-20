@@ -22,7 +22,6 @@ const PricingPlans = () => {
       features: [
         "Account setup & optimization",
         "Basic content strategy",
-        "Chat management (8 hours/day)",
         "Weekly performance reports",
         "Email support",
         "1 platform management"
@@ -146,7 +145,7 @@ const PricingPlans = () => {
           {plans.map((plan, index) => (
             <div
               key={plan.name}
-              className={`relative group animate-slide-up-fade ${
+              className={`relative group animate-slide-up-fade pt-6 ${
                 plan.premium 
                   ? 'edge-glow-premium' 
                   : plan.popular 
@@ -155,13 +154,13 @@ const PricingPlans = () => {
               }`}
               style={{animationDelay: `${index * 200}ms`}}
             >
-              <div className={`aqua-glass-dark rounded-3xl p-8 h-[650px] hover:scale-105 transition-all duration-500 relative overflow-hidden flex flex-col ${
+              <div className={`aqua-glass-dark rounded-3xl p-8 h-[680px] hover:scale-105 transition-all duration-500 relative overflow-hidden flex flex-col ${
                 plan.popular ? 'ring-2 ring-purple-500/50 transform scale-105' : ''
               }`}>
                 
                 {/* Popular Badge */}
                 {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
                     <div className="aqua-gradient text-white px-6 py-2 rounded-full text-sm font-bold flex items-center">
                       <Zap className="h-4 w-4 mr-1" />
                       {t('pricing.mostPopular').toUpperCase()}
@@ -171,7 +170,7 @@ const PricingPlans = () => {
 
                 {/* Premium Badge */}
                 {plan.premium && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
                     <div className="bg-gradient-to-r from-amber-400 to-yellow-500 text-black px-6 py-2 rounded-full text-sm font-bold flex items-center">
                       <Crown className="h-4 w-4 mr-1" />
                       {t('pricing.eliteTier').toUpperCase()}
@@ -180,7 +179,7 @@ const PricingPlans = () => {
                 )}
 
                 {/* Plan Icon */}
-                <div className="flex justify-center mb-6">
+                <div className="flex justify-center mb-6 mt-2">
                   <div className={`p-4 rounded-2xl ${
                     plan.premium 
                       ? 'bg-gradient-to-r from-amber-400 to-yellow-500' 
@@ -211,11 +210,11 @@ const PricingPlans = () => {
                 </div>
 
                 {/* Features */}
-                <ul className="space-y-4 mb-8 flex-grow">
+                <ul className="space-y-3 mb-8 flex-grow">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
                       <Check className="h-5 w-5 text-green-400 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-300 text-sm">{feature}</span>
+                      <span className="text-gray-300 text-sm leading-relaxed">{feature}</span>
                     </li>
                   ))}
                 </ul>
