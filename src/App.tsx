@@ -22,6 +22,7 @@ function App() {
       <PricingPlans />
       <Contact />
       <Footer />
+      <Analytics />
     </div>
   );
 }
