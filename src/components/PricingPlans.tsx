@@ -141,11 +141,11 @@ const PricingPlans = () => {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
           {plans.map((plan, index) => (
             <div
               key={plan.name}
-              className={`relative group animate-slide-up-fade pt-6 ${
+              className={`relative group animate-slide-up-fade ${
                 plan.premium 
                   ? 'edge-glow-premium' 
                   : plan.popular 
@@ -154,7 +154,7 @@ const PricingPlans = () => {
               }`}
               style={{animationDelay: `${index * 200}ms`}}
             >
-              <div className={`aqua-glass-dark rounded-3xl p-8 h-[680px] hover:scale-105 transition-all duration-500 relative overflow-hidden flex flex-col ${
+              <div className={`aqua-glass-dark rounded-3xl p-8 min-h-[720px] hover:scale-105 transition-all duration-500 relative overflow-hidden flex flex-col ${
                 plan.popular ? 'ring-2 ring-purple-500/50 transform scale-105' : ''
               }`}>
                 
@@ -179,7 +179,7 @@ const PricingPlans = () => {
                 )}
 
                 {/* Plan Icon */}
-                <div className="flex justify-center mb-6 mt-2">
+                <div className="flex justify-center mb-6 mt-8">
                   <div className={`p-4 rounded-2xl ${
                     plan.premium 
                       ? 'bg-gradient-to-r from-amber-400 to-yellow-500' 
@@ -190,7 +190,7 @@ const PricingPlans = () => {
                 </div>
 
                 {/* Plan Details */}
-                <div className="text-center mb-8">
+                <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
                   <p className="text-gray-300 text-sm mb-6">{plan.description}</p>
                   
@@ -210,7 +210,7 @@ const PricingPlans = () => {
                 </div>
 
                 {/* Features */}
-                <ul className="space-y-3 mb-8 flex-grow">
+                <ul className="space-y-2.5 mb-6 flex-grow">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
                       <Check className="h-5 w-5 text-green-400 mr-3 mt-0.5 flex-shrink-0" />
@@ -220,7 +220,7 @@ const PricingPlans = () => {
                 </ul>
 
                 {/* CTA Button */}
-                <button className={`w-full py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl ${
+                <button className={`w-full py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl mt-auto ${
                   plan.premium
                     ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-black hover:shadow-amber-500/50'
                     : plan.popular
