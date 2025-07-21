@@ -42,7 +42,15 @@ const Hero = () => {
             
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 animate-slide-up-fade delay-500">
-              <button className="group relative btn-modern aqua-gradient text-white px-10 py-4 rounded-2xl font-bold text-lg tracking-wide hover:shadow-2xl hover:shadow-purple-500/40 transform hover:-translate-y-2 hover:scale-105 transition-all duration-500 overflow-hidden edge-glow">
+              <button 
+                onClick={() => {
+                  const element = document.getElementById('contact');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="group relative btn-modern aqua-gradient text-white px-10 py-4 rounded-2xl font-bold text-lg tracking-wide hover:shadow-2xl hover:shadow-purple-500/40 transform hover:-translate-y-2 hover:scale-105 transition-all duration-500 overflow-hidden edge-glow"
+              >
                 <span className="relative z-10 flex items-center justify-center">
                   <Sparkles className="mr-3 h-5 w-5 group-hover:animate-bounce-gentle" />
                   {t('hero.getStarted')}
@@ -50,7 +58,15 @@ const Hero = () => {
                 </span>
               </button>
               
-              <button className="aqua-glass text-white px-8 py-4 rounded-2xl font-semibold hover:bg-white/10 transition-all duration-300 border border-white/20 hover:border-white/40 edge-glow">
+              <button 
+                onClick={() => {
+                  const element = document.getElementById('testimonials');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="aqua-glass text-white px-8 py-4 rounded-2xl font-semibold hover:bg-white/10 transition-all duration-300 border border-white/20 hover:border-white/40 edge-glow"
+              >
                 {t('hero.viewStories')}
               </button>
             </div>

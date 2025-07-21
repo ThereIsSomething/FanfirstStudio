@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sparkles, Shield, Zap } from 'lucide-react';
-import { useTheme } from '../contexts/ThemeContext';
 import { useLanguage } from '../contexts/LanguageContext';
-import ThemeToggle from './ThemeToggle';
 import LanguageSelector from './LanguageSelector';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { theme } = useTheme();
   const { t } = useLanguage();
 
   useEffect(() => {
@@ -80,9 +77,16 @@ const Header = () => {
           </nav>
 
           <div className="hidden lg:flex items-center space-x-4">
-            <ThemeToggle />
             <LanguageSelector />
-            <button className="relative btn-modern aqua-gradient text-white px-8 py-3 rounded-xl font-bold tracking-wide hover:shadow-2xl hover:shadow-purple-500/30 transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 group overflow-hidden edge-glow">
+            <button 
+              onClick={() => {
+                const element = document.getElementById('contact');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="relative btn-modern aqua-gradient text-white px-8 py-3 rounded-xl font-bold tracking-wide hover:shadow-2xl hover:shadow-purple-500/30 transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 group overflow-hidden edge-glow"
+            >
               <span className="relative z-10 flex items-center">
                 <Zap className="mr-2 h-4 w-4 group-hover:animate-pulse" />
                 {t('header.joinElite').toUpperCase()}
@@ -122,10 +126,18 @@ const Header = () => {
               </a>
             ))}
             <div className="flex items-center justify-between pt-4 border-t border-white/10">
-              <ThemeToggle />
               <LanguageSelector />
             </div>
-            <button className="w-full aqua-gradient text-white px-6 py-3 rounded-xl font-bold tracking-wide mt-4 edge-glow">
+            <button 
+              onClick={() => {
+                const element = document.getElementById('contact');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                  setIsMenuOpen(false);
+                }
+              }}
+              className="w-full aqua-gradient text-white px-6 py-3 rounded-xl font-bold tracking-wide mt-4 edge-glow"
+            >
               {t('header.joinElite').toUpperCase()}
             </button>
           </div>

@@ -2,6 +2,56 @@ import React from 'react';
 import { Camera, MessageCircle, BarChart3, Settings, Users, Shield, Sparkles, Zap, Star, Crown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
+const PlatformIntegration = () => {
+  const platforms = [
+    { name: 'OnlyFans', logo: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=100&h=100' },
+    { name: 'Fansly', logo: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=100&h=100' },
+    { name: 'FansOne', logo: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=100&h=100' },
+    { name: 'ManyVids', logo: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=100&h=100' },
+    { name: 'Swame', logo: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=100&h=100' },
+    { name: 'Fanvue', logo: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=100&h=100' },
+    { name: 'SpankChain', logo: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=100&h=100' },
+    { name: 'FanCentro', logo: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=100&h=100' },
+    { name: 'Stripchat', logo: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=100&h=100' }
+  ];
+
+  return (
+    <div className="mt-20 animate-slide-up-fade delay-1000">
+      <div className="text-center mb-12">
+        <h3 className="font-display text-3xl font-black text-white mb-4">
+          Supported <span className="gradient-text">Platforms</span>
+        </h3>
+        <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          We manage and optimize your presence across all major creator platforms
+        </p>
+      </div>
+      
+      <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-6">
+        {platforms.map((platform, index) => (
+          <div 
+            key={platform.name}
+            className="glass-dark rounded-2xl p-4 hover:bg-white/10 transition-all duration-300 hover:-translate-y-2 hover:scale-105 group"
+            style={{animationDelay: `${index * 100}ms`}}
+          >
+            <div className="text-center">
+              <div className="w-16 h-16 mx-auto mb-3 rounded-xl overflow-hidden bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <img 
+                  src={platform.logo} 
+                  alt={`${platform.name} logo`}
+                  className="w-12 h-12 object-cover rounded-lg"
+                />
+              </div>
+              <span className="text-white text-sm font-semibold group-hover:gradient-text transition-all duration-300">
+                {platform.name}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const Services = () => {
   const { t } = useLanguage();
 
@@ -144,7 +194,15 @@ const Services = () => {
               into a 7-figure creator within 90 days.
             </p>
             
-            <button className="btn-modern gradient-primary text-white px-12 py-4 rounded-2xl font-bold text-lg tracking-wide hover:shadow-2xl hover:shadow-purple-500/40 transform hover:-translate-y-2 hover:scale-105 transition-all duration-500 group">
+            <button 
+              onClick={() => {
+                const element = document.getElementById('contact');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="btn-modern gradient-primary text-white px-12 py-4 rounded-2xl font-bold text-lg tracking-wide hover:shadow-2xl hover:shadow-purple-500/40 transform hover:-translate-y-2 hover:scale-105 transition-all duration-500 group"
+            >
               <span className="flex items-center">
                 <Zap className="mr-2 h-5 w-5 group-hover:animate-pulse" />
                 Claim Your Elite Status
@@ -152,6 +210,9 @@ const Services = () => {
             </button>
           </div>
         </div>
+        
+        {/* Platform Integration */}
+        <PlatformIntegration />
       </div>
     </section>
   );
