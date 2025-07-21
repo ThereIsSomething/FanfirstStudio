@@ -221,11 +221,13 @@ const Contact = () => {
                       className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
                     >
                       <option value="" className="bg-slate-800">Select earnings range</option>
-                      <option value="0-1k" className="bg-slate-800">$0 - $1,000</option>
+                      <option value="0-0.5k" className="bg-slate-800">$0 - $500</option>
+                      <option value="0.5k-1k" className="bg-slate-800">$500 - $1,000</option>
                       <option value="1k-5k" className="bg-slate-800">$1,000 - $5,000</option>
                       <option value="5k-10k" className="bg-slate-800">$5,000 - $10,000</option>
-                      <option value="10k-25k" className="bg-slate-800">$10,000 - $25,000</option>
-                      <option value="25k+" className="bg-slate-800">$25,000+</option>
+                      <option value="10k-20k" className="bg-slate-800">$10,000 - $20,000</option>
+                      <option value="20k-30k" className="bg-slate-800">$20,000 - $30,000</option>
+                      <option value="30k+" className="bg-slate-800">$50,000+</option>
                     </select>
                   </div>
                   
