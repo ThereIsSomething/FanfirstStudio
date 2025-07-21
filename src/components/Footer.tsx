@@ -94,7 +94,7 @@ const Footer = () => {
               Stay Updated with Model Insights
             </h3>
             <p className="text-lg max-w-2xl mx-auto text-gray-200">
-              Get exclusive tips, English Chat Templates, Content Startegy, industry insights, and success strategies delivered to your inbox.
+              Get exclusive tips, English/Chinese Chat Templates, Content Startegy, industry insights, and success strategies delivered to your inbox.
             </p>
           </div>
           
