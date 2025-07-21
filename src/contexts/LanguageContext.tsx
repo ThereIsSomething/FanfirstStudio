@@ -171,7 +171,7 @@ const translations = {
     'contact.subtitle': 'Complete our application form and let\'s discuss how we can help you achieve your goals.',
     'contact.formTitle': 'Application Form',
     'contact.name': 'Full Name',
-    'contact.email': 'Email Address',
+    'contact.email': 'Email Address (make sure its accurate)',
     'contact.phone': 'Phone Number',
     'contact.experience': 'Experience Level',
     'contact.platforms': 'Platforms of Interest',
