@@ -1,1 +1,30 @@
+name: Bi-Directional Sync
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v3
+
+      - name: Setup Git
+        run: |
+          git config --global user.name "Rosie Sync"
+          git config --global user.email "sync@rosielove.dev"
+
+      - name: Add and pull from target
+        run: |
+          git remote add target https://x-access-token:${{ secrets.TARGET_TOKEN }}@github.com/${{ secrets.TARGET_REPO }}.git
+          git fetch target
+          git pull target main --rebase || echo "No new commits to rebase"
+
+      - name: Push to target repo
+        run: |
+          git push target HEAD:main --force
 
