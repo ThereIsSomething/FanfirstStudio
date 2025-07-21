@@ -240,11 +240,12 @@ const Contact = () => {
                       className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
                     >
                       <option value="" className="bg-slate-800">Select target income</option>
+                      <option value="1k-2k" className="bg-slate-800">$1,000 - $2,000</option>
+                      <option value="2k-5k" className="bg-slate-800">$2,000 - $5,000</option>
                       <option value="5k-10k" className="bg-slate-800">$5,000 - $10,000</option>
-                      <option value="10k-25k" className="bg-slate-800">$10,000 - $25,000</option>
-                      <option value="25k-50k" className="bg-slate-800">$25,000 - $50,000</option>
-                      <option value="50k-100k" className="bg-slate-800">$50,000 - $100,000</option>
-                      <option value="100k+" className="bg-slate-800">$100,000+</option>
+                      <option value="10k-20k" className="bg-slate-800">$10,000 - $20,000</option>
+                      <option value="20k-50k" className="bg-slate-800">$10,000 - $20,000</option>
+                      <option value="50k+" className="bg-slate-800">$50,000+</option>
                     </select>
                   </div>
                 </div>
@@ -261,14 +262,14 @@ const Contact = () => {
                       className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
                     >
                       <option value="" className="bg-slate-800">Select content type</option>
-                      <option value="lifestyle" className="bg-slate-800">NSFW</option>
-                      <option value="fitness" className="bg-slate-800">Fetish</option>
-                      <option value="gaming" className="bg-slate-800">ASMR</option>
-                      <option value="adult" className="bg-slate-800">COSPLAY/ROLEPLAY</option>
-                      <option value="other" className="bg-slate-800">Humiliation</option>
-                      <option value="other" className="bg-slate-800">SOFT</option>
-                      <option value="other" className="bg-slate-800">Kink</option>
-                      <option value="other" className="bg-slate-800">Custom (discussion will take place)</option>
+                      <option value="nsfw" className="bg-slate-800">NSFW</option>
+                      <option value="fetish" className="bg-slate-800">Fetish</option>
+                      <option value="asmr" className="bg-slate-800">ASMR</option>
+                      <option value="cosplay/roleplay" className="bg-slate-800">COSPLAY/ROLEPLAY</option>
+                      <option value="humiliation" className="bg-slate-800">Humiliation</option>
+                      <option value="soft" className="bg-slate-800">SOFT</option>
+                      <option value="kink" className="bg-slate-800">Kink</option>
+                      <option value="custom" className="bg-slate-800">Custom (discussion will take place)</option>
                     </select>
                   </div>
                   
