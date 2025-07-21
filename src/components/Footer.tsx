@@ -91,10 +91,10 @@ const Footer = () => {
         <div className="py-16 border-b border-gray-600/30">
           <div className="text-center mb-8">
             <h3 className="text-3xl font-bold mb-4 text-white drop-shadow-lg">
-              Stay Updated with Creator Insights
+              Stay Updated with Model Insights
             </h3>
             <p className="text-lg max-w-2xl mx-auto text-gray-200">
-              Get exclusive tips, industry insights, and success strategies delivered to your inbox.
+              Get exclusive tips, English Chat Templates, Content Startegy, industry insights, and success strategies delivered to your inbox.
             </p>
           </div>
           
