@@ -394,7 +394,7 @@ const Contact = () => {
             <div className="aqua-gradient text-white rounded-3xl p-8 edge-glow">
               <h3 className="text-xl font-bold mb-4">Quick Response</h3>
               <p className="text-white/80 mb-4">
-                We typically respond to applications within 24 hours. Our team will review your application and get back to you in your language (CN).
+                We typically respond to applications within 24 hours. Our team will review your application and get back to you in your language (ZH-CN).
               </p>
               <div className="bg-white/20 p-4 rounded-lg">
                 <div className="text-center">
