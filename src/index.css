@@ -276,6 +276,22 @@ html {
   animation: rotate-slow 20s linear infinite;
 }
 
+/* Footer specific animations */
+@keyframes footer-glow {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.2;
+    transform: scale(1.05);
+  }
+}
+
+.animate-footer-glow {
+  animation: footer-glow 4s ease-in-out infinite;
+}
+
 /* Delay Classes */
 .delay-100 { animation-delay: 100ms; }
 .delay-200 { animation-delay: 200ms; }
