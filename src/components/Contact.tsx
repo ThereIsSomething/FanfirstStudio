@@ -294,7 +294,7 @@ const Contact = () => {
                     {t('contact.platforms')} *
                   </label>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    {['OnlyFans', 'Fansly', 'Fansone', 'Instagram', 'TikTok', 'YouTube', 'Twitch', 'Other'].map((platform) => (
+                    {['OnlyFans', 'Fansly', 'FansOne', 'ManyVids', 'Swame', 'Fanvue', 'SpankChain', 'FanCentro', 'StripChat', 'Instagram', 'Other'].map((platform) => (
                       <label key={platform} className="flex items-center space-x-2 cursor-pointer">
                         <input
                           type="checkbox"
