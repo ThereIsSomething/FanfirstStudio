@@ -15,8 +15,8 @@ jobs:
 
       - name: Setup Git
         run: |
-          git config --global user.name "Rosie Sync"
-          git config --global user.email "sync@rosielove.dev"
+          git config --global user.name "FanFirst Mirror Sync"
+          git config --global user.email "nitishbhambu07022005@gmail.com"
 
       - name: Add and pull from target
         run: |
