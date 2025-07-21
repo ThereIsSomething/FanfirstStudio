@@ -390,38 +390,104 @@ html {
 }
 
 /* Responsive Typography */
-@media (max-width: 768px) {
-  .text-responsive-xl {
-    font-size: 2.5rem;
-    line-height: 1.1;
+/* Mobile-First Responsive Design */
+@media (max-width: 640px) {
+  /* Mobile optimizations */
+  .aqua-glass-dark {
+    backdrop-filter: blur(16px);
   }
   
-  .text-responsive-2xl {
-    font-size: 3rem;
-    line-height: 1.1;
+  /* Ensure touch targets are at least 44px */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
   }
+  
+  /* Prevent horizontal scrolling */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Mobile typography */
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+  
+  /* Mobile spacing */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  /* Tablet optimizations */
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.75rem; }
 }
 
 @media (min-width: 769px) {
-  .text-responsive-xl {
-    font-size: 3.5rem;
-    line-height: 1.1;
+  /* Desktop optimizations */
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.5rem; }
+  h3 { font-size: 2rem; }
+}
+
+/* Mobile Navigation Improvements */
+@media (max-width: 1023px) {
+  .mobile-menu {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 40;
   }
   
-  .text-responsive-2xl {
-    font-size: 4.5rem;
-    line-height: 1.1;
+  /* Ensure language selector is accessible on mobile */
+  .language-selector-mobile {
+    position: relative;
+    z-index: 50;
   }
 }
 
-@media (min-width: 1024px) {
-  .text-responsive-xl {
-    font-size: 4rem;
-    line-height: 1.1;
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects on touch devices */
+  .hover\:scale-105:hover {
+    transform: none;
   }
   
-  .text-responsive-2xl {
-    font-size: 5.5rem;
-    line-height: 1.1;
+  .hover\:-translate-y-2:hover {
+    transform: none;
+  }
+  
+  /* Add active states for touch */
+  button:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Landscape mobile optimizations */
+@media (max-width: 896px) and (orientation: landscape) {
+  .hero-section {
+    min-height: 100vh;
+    padding-top: 5rem;
+  }
+  
+  .mobile-menu {
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Optimize for retina displays */
+  .edge-glow::before {
+    transform: scale(0.5);
+    transform-origin: center;
   }
 }

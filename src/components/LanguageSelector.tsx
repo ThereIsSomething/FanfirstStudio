@@ -22,12 +22,12 @@ const LanguageSelector = () => {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 p-2 rounded-xl aqua-glass hover:bg-white/10 transition-all duration-300"
+        className="flex items-center space-x-1 sm:space-x-2 p-1.5 sm:p-2 rounded-xl aqua-glass hover:bg-white/10 transition-all duration-300 min-w-[60px] sm:min-w-[80px]"
         aria-label="Select language"
       >
-        <Globe className="h-5 w-5 text-gray-300" />
-        <span className="text-sm font-medium text-gray-300">{currentLanguage?.flag}</span>
-        <ChevronDown className={`h-4 w-4 text-gray-300 transition-transform duration-200 ${
+        <Globe className="h-4 w-4 sm:h-5 sm:w-5 text-gray-300" />
+        <span className="text-xs sm:text-sm font-medium text-gray-300">{currentLanguage?.flag}</span>
+        <ChevronDown className={`h-3 w-3 sm:h-4 sm:w-4 text-gray-300 transition-transform duration-200 ${
           isOpen ? 'rotate-180' : ''
         }`} />
       </button>
@@ -49,7 +49,7 @@ const LanguageSelector = () => {
                 }`}
               >
                 <span className="text-lg">{lang.flag}</span>
-                <span className="text-sm font-medium">{lang.name}</span>
+                <span className="text-xs sm:text-sm font-medium">{lang.name}</span>
               </button>
             ))}
           </div>

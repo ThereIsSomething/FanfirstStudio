@@ -180,37 +180,39 @@ const PricingPlans = () => {
         </div>
 
         {/* Plan Type Toggle */}
-        <div className="flex justify-center mb-16 animate-slide-up-fade delay-200">
-          <div className="aqua-glass-dark rounded-2xl p-1 edge-glow">
-            <div className="flex items-center min-w-[400px] relative">
+        <div className="flex justify-center mb-12 sm:mb-16 animate-slide-up-fade delay-200">
+          <div className="aqua-glass-dark rounded-2xl p-1 edge-glow w-full max-w-md sm:max-w-lg">
+            <div className="flex items-center relative">
               <button
                 onClick={() => setPlanType('onetime')}
-                className={`px-8 py-4 rounded-xl font-semibold transition-all duration-300 whitespace-nowrap flex items-center ${
+                className={`flex-1 px-4 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 whitespace-nowrap flex items-center justify-center text-sm sm:text-base ${
                   planType === 'onetime' 
                     ? 'aqua-gradient text-white shadow-lg transform scale-105' 
                     : 'text-gray-300 hover:text-white'
                 }`}
               >
-                <DollarSign className="h-5 w-5 mr-2" />
-                One-Time Setup
+                <DollarSign className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2" />
+                <span className="hidden sm:inline">One-Time Setup</span>
+                <span className="sm:hidden">One-Time</span>
               </button>
               <button
                 onClick={() => setPlanType('monthly')}
-                className={`px-8 py-4 rounded-xl font-semibold transition-all duration-300 whitespace-nowrap flex items-center ${
+                className={`flex-1 px-4 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 whitespace-nowrap flex items-center justify-center text-sm sm:text-base ${
                   planType === 'monthly' 
                     ? 'aqua-gradient text-white shadow-lg transform scale-105' 
                     : 'text-gray-300 hover:text-white'
                 }`}
               >
-                <Zap className="h-5 w-5 mr-2" />
-                Monthly Management
+                <Zap className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2" />
+                <span className="hidden sm:inline">Monthly Management</span>
+                <span className="sm:hidden">Monthly</span>
               </button>
             </div>
           </div>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
           {currentPlans.map((plan, index) => (
             <div
               key={`${planType}-${plan.name}`}
@@ -220,19 +222,20 @@ const PricingPlans = () => {
                   : plan.popular 
                     ? 'edge-glow' 
                     : ''
-              }`}
+              } ${plan.popular ? 'md:col-span-2 lg:col-span-1' : ''}`}
               style={{animationDelay: `${index * 200}ms`}}
             >
-              <div className={`aqua-glass-dark rounded-3xl p-8 min-h-[800px] hover:scale-105 transition-all duration-500 relative overflow-hidden flex flex-col ${
+              <div className={`aqua-glass-dark rounded-3xl p-6 sm:p-8 min-h-[600px] sm:min-h-[720px] hover:scale-105 transition-all duration-500 relative overflow-hidden flex flex-col ${
                 plan.popular ? 'ring-2 ring-purple-500/50 transform scale-105' : ''
               }`}>
                 
                 {/* Popular Badge */}
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
-                    <div className="aqua-gradient text-white px-6 py-2 rounded-full text-sm font-bold flex items-center">
-                      <Zap className="h-4 w-4 mr-1" />
-                      MOST POPULAR
+                    <div className="aqua-gradient text-white px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-bold flex items-center">
+                      <Zap className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
+                      <span className="hidden sm:inline">MOST POPULAR</span>
+                      <span className="sm:hidden">POPULAR</span>
                     </div>
                   </div>
                 )}
@@ -240,38 +243,39 @@ const PricingPlans = () => {
                 {/* Premium Badge */}
                 {plan.premium && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
-                    <div className="bg-gradient-to-r from-amber-400 to-yellow-500 text-black px-6 py-2 rounded-full text-sm font-bold flex items-center">
-                      <Crown className="h-4 w-4 mr-1" />
-                      ELITE TIER
+                    <div className="bg-gradient-to-r from-amber-400 to-yellow-500 text-black px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-bold flex items-center">
+                      <Crown className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
+                      <span className="hidden sm:inline">ELITE TIER</span>
+                      <span className="sm:hidden">ELITE</span>
                     </div>
                   </div>
                 )}
 
                 {/* Plan Icon */}
-                <div className="flex justify-center mb-6 mt-8">
+                <div className="flex justify-center mb-4 sm:mb-6 mt-6 sm:mt-8">
                   <div className={`p-4 rounded-2xl ${
                     plan.premium 
                       ? 'bg-gradient-to-r from-amber-400 to-yellow-500' 
                       : 'aqua-gradient'
                   }`}>
-                    <plan.icon className="h-8 w-8 text-white" />
+                    <plan.icon className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                   </div>
                 </div>
 
                 {/* Plan Details */}
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-                  <p className="text-gray-300 text-sm mb-6 leading-relaxed">{plan.description}</p>
+                <div className="text-center mb-6 sm:mb-8">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                  <p className="text-gray-300 text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed px-2">{plan.description}</p>
                   
-                  <div className="mb-6">
-                    <div className="text-5xl font-black text-white mb-2">
+                  <div className="mb-4 sm:mb-6">
+                    <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-2">
                       {formatPrice(plan.price)}
                     </div>
-                    <div className="text-gray-400 text-sm">
+                    <div className="text-gray-400 text-xs sm:text-sm">
                       {planType === 'onetime' ? 'one-time payment' : 'per month'}
                     </div>
                     {planType === 'monthly' && (
-                      <div className="text-purple-400 text-sm font-semibold mt-1">
+                      <div className="text-purple-400 text-xs sm:text-sm font-semibold mt-1">
                         Cancel anytime
                       </div>
                     )}
@@ -279,11 +283,11 @@ const PricingPlans = () => {
                 </div>
 
                 {/* Features */}
-                <ul className="space-y-3 mb-8 flex-grow">
+                <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8 flex-grow">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
-                      <Check className="h-5 w-5 text-green-400 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-300 text-sm leading-relaxed">{feature}</span>
+                      <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-400 mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-300 text-xs sm:text-sm leading-relaxed">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -291,7 +295,7 @@ const PricingPlans = () => {
                 {/* CTA Button */}
                 <button 
                   onClick={scrollToContact}
-                  className={`w-full py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl mt-auto ${
+                  className={`w-full py-3 sm:py-4 rounded-2xl font-bold text-sm sm:text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl mt-auto ${
                     plan.premium
                       ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-black hover:shadow-amber-500/50'
                       : plan.popular
@@ -311,28 +315,28 @@ const PricingPlans = () => {
 
         {/* Bottom Guarantee */}
         <div className="text-center mt-16">
-          <div className="aqua-glass-dark rounded-3xl p-8 max-w-4xl mx-auto edge-glow">
+          <div className="aqua-glass-dark rounded-3xl p-6 sm:p-8 max-w-4xl mx-auto edge-glow">
             <div className="flex items-center justify-center mb-4">
-              <Shield className="h-6 w-6 text-green-400 mr-3" />
-              <h3 className="text-2xl font-bold text-white">Success Guarantee</h3>
+              <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-green-400 mr-2 sm:mr-3" />
+              <h3 className="text-xl sm:text-2xl font-bold text-white">Success Guarantee</h3>
             </div>
-            <p className="text-gray-300 mb-6">
+            <p className="text-gray-300 mb-6 text-sm sm:text-base">
               {planType === 'onetime' 
                 ? "30-day money-back guarantee on all setup packages. If you're not completely satisfied, we'll refund every penny."
                 : "Cancel anytime with 30 days notice. We're confident you'll see results within the first month."
               }
             </p>
-            <div className="flex justify-center space-x-8 text-sm text-gray-400">
+            <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 text-xs sm:text-sm text-gray-400">
               <div className="flex items-center">
-                <Check className="h-4 w-4 text-green-400 mr-2" />
+                <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-400 mr-2" />
                 No hidden fees
               </div>
               <div className="flex items-center">
-                <Check className="h-4 w-4 text-green-400 mr-2" />
+                <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-400 mr-2" />
                 {planType === 'onetime' ? 'Lifetime support' : 'Cancel anytime'}
               </div>
               <div className="flex items-center">
-                <Check className="h-4 w-4 text-green-400 mr-2" />
+                <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-400 mr-2" />
                 24/7 support
               </div>
             </div>
