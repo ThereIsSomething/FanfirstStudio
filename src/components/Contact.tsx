@@ -261,11 +261,14 @@ const Contact = () => {
                       className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
                     >
                       <option value="" className="bg-slate-800">Select content type</option>
-                      <option value="lifestyle" className="bg-slate-800">Lifestyle & Fashion</option>
-                      <option value="fitness" className="bg-slate-800">Fitness & Wellness</option>
-                      <option value="gaming" className="bg-slate-800">Gaming & Entertainment</option>
-                      <option value="adult" className="bg-slate-800">Adult Content</option>
-                      <option value="other" className="bg-slate-800">Other</option>
+                      <option value="lifestyle" className="bg-slate-800">NSFW</option>
+                      <option value="fitness" className="bg-slate-800">Fetish</option>
+                      <option value="gaming" className="bg-slate-800">ASMR</option>
+                      <option value="adult" className="bg-slate-800">COSPLAY/ROLEPLAY</option>
+                      <option value="other" className="bg-slate-800">Humiliation</option>
+                      <option value="other" className="bg-slate-800">SOFT</option>
+                      <option value="other" className="bg-slate-800">Kink</option>
+                      <option value="other" className="bg-slate-800">Custom (discussion will take place)</option>
                     </select>
                   </div>
                   
@@ -294,7 +297,7 @@ const Contact = () => {
                     {t('contact.platforms')} *
                   </label>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    {['OnlyFans', 'Fansly', 'FansOne', 'ManyVids', 'Swame', 'Fanvue', 'SpankChain', 'FanCentro', 'StripChat', 'Instagram', 'Other'].map((platform) => (
+                    {['OnlyFans', 'Fansly', 'FansOne', 'ManyVids', 'Swame', 'Fanvue', 'SpankChain', 'FanCentro', 'StripChat', 'SellyFans', 'FansMine', 'Instagram', 'Other'].map((platform) => (
                       <label key={platform} className="flex items-center space-x-2 cursor-pointer">
                         <input
                           type="checkbox"
