@@ -101,6 +101,8 @@ const Contact = () => {
         console.error('Supabase Error:', error);
         throw new Error('Supabase submission failed');
       }
+
+      
       await emailjs.send(
         'service_6zm2dfr',
         'template_0102kt2',
