@@ -93,11 +93,15 @@ const Contact = () => {
       };
 
       // TODO: Replace with actual Supabase integration
-      // const { data, error } = await supabase
-      //   .from('client_onboarding_submissions')
-      //   .insert([submissionData]);
-      
-      // if (error) throw error;
+      const { data, error } = await supabase
+      .from('client_onboarding_submissions')
+      .insert([submissionData]);
+
+      if (error) {
+        console.error('Supabase Error:', error);
+        throw new Error('Supabase submission failed');
+      }
+
 
       // Simulate API call for now
       console.log('Form submitted with data:', submissionData);
