@@ -376,23 +376,26 @@ const Contact = () => {
                       Primary Service Type *
                     </label>
                     <div className="grid md:grid-cols-2 gap-3">
-                      {serviceTypes.map((service) => (
-                        <label key={service.value} className="flex items-center space-x-3 cursor-pointer">
-                          <input
-                            type="radio"
-                            name="serviceType"
-                            value={service.value}
-                            checked={formData.serviceType === service.value}
-                            onChange={handleInputChange}
-                            className="w-4 h-4 text-purple-400 bg-transparent border-gray-500 focus:ring-purple-400"
-                            required
-                          />
-                          <div className="flex items-center space-x-2">
-                            <service.icon className="h-4 w-4 text-purple-400" />
-                            <span className="text-sm text-gray-300">{service.label}</span>
-                          </div>
-                        </label>
-                      ))}
+                      {serviceTypes.map((service, index) => {
+  const id = `service-${index}`;
+  return (
+    <div key={service.value} className="flex items-center space-x-2">
+      <input
+        type="radio"
+        id={id}
+        name="serviceType"
+        value={service.value}
+        checked={formData.serviceType === service.value}
+        onChange={handleInputChange}
+        className="w-4 h-4 text-purple-400"
+      />
+      <label htmlFor={id} className="text-sm text-gray-300 cursor-pointer">
+        {service.label}
+      </label>
+    </div>
+  );
+})}
+
                     </div>
                   </div>
                 </div>
