@@ -89,7 +89,6 @@ const Contact = () => {
         audience_size: formData.audience,
         selected_platforms: formData.selectedPlatforms,
         message: formData.message,
-        created_at: new Date().toISOString()
       };
 
       // TODO: Replace with actual Supabase integration
