@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, Phone, Mail, MapPin, Clock, ChevronDown } from 'lucide-react';
+import { Send, Phone, Mail, MapPin, Clock, ChevronDown, Globe, Users, Briefcase, MessageSquare, CreditCard, Settings } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Contact = () => {
@@ -9,15 +9,23 @@ const Contact = () => {
     email: '',
     phone: '',
     countryCode: '+86',
+    communicationLanguage: '',
+    referralCode: '',
+    region: '',
+    existingPlatformAccounts: '',
+    serviceType: '',
     experience: '',
     currentEarnings: '',
     goals: '',
     contentType: '',
     audience: '',
-    platforms: [],
+    selectedPlatforms: [],
     message: ''
   });
+  
   const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
   const countryCodes = [
     { code: '+86', country: 'China', flag: '🇨🇳' },
@@ -35,10 +43,101 @@ const Contact = () => {
     { code: '+7', country: 'Russia', flag: '🇷🇺' },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const communicationLanguages = [
+    { code: 'en', name: 'English', flag: '🇺🇸' },
+    { code: 'zh', name: '中文 (Chinese)', flag: '🇨🇳' },
+    { code: 'ja', name: '日本語 (Japanese)', flag: '🇯🇵' }
+  ];
+
+  const serviceTypes = [
+    { value: 'onboarding', label: 'Account Onboarding & Setup', icon: Users },
+    { value: 'marketing', label: 'Marketing & Promotion', icon: MessageSquare },
+    { value: 'payment', label: 'Payment Setup & Optimization', icon: CreditCard },
+    { value: 'management', label: 'Complete Account Management', icon: Settings },
+    { value: 'consultation', label: 'Strategy Consultation', icon: Briefcase },
+    { value: 'other', label: 'Other Services', icon: Globe }
+  ];
+
+  const availablePlatforms = [
+    'OnlyFans', 'Fansly', 'FansOne', 'ManyVids', 'Swame', 'Fanvue', 
+    'SpankChain', 'FanCentro', 'StripChat', 'SellyFans', 'FansMine', 
+    'Instagram', 'TikTok', 'YouTube', 'Twitter/X', 'Snapchat', 'Telegram', 'Other'
+  ];
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus({ type: '', message: '' });
+
+    try {
+      // Prepare data for Supabase submission
+      const submissionData = {
+        full_name: formData.name,
+        email: formData.email,
+        phone_number: formData.phone,
+        country_code: formData.countryCode,
+        communication_language: formData.communicationLanguage,
+        referral_code: formData.referralCode || null,
+        region: formData.region,
+        existing_platform_accounts: formData.existingPlatformAccounts,
+        service_type: formData.serviceType,
+        experience_level: formData.experience,
+        current_monthly_earnings: formData.currentEarnings,
+        income_goals: formData.goals,
+        content_type: formData.contentType,
+        audience_size: formData.audience,
+        selected_platforms: formData.selectedPlatforms,
+        message: formData.message,
+        created_at: new Date().toISOString()
+      };
+
+      // TODO: Replace with actual Supabase integration
+      // const { data, error } = await supabase
+      //   .from('client_onboarding_submissions')
+      //   .insert([submissionData]);
+      
+      // if (error) throw error;
+
+      // Simulate API call for now
+      console.log('Form submitted with data:', submissionData);
+      
+      // Simulate success response
+      setTimeout(() => {
+        setSubmitStatus({ 
+          type: 'success', 
+          message: 'Application submitted successfully! We will contact you within 24 hours.' 
+        });
+        setIsSubmitting(false);
+        
+        // Reset form after successful submission
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          countryCode: '+86',
+          communicationLanguage: '',
+          referralCode: '',
+          region: '',
+          existingPlatformAccounts: '',
+          serviceType: '',
+          experience: '',
+          currentEarnings: '',
+          goals: '',
+          contentType: '',
+          audience: '',
+          selectedPlatforms: [],
+          message: ''
+        });
+      }, 1500);
+
+    } catch (error) {
+      console.error('Submission error:', error);
+      setSubmitStatus({ 
+        type: 'error', 
+        message: 'Failed to submit application. Please try again.' 
+      });
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -57,13 +156,13 @@ const Contact = () => {
   };
 
   const handlePlatformChange = (platform: string) => {
-    const updatedPlatforms = formData.platforms.includes(platform)
-      ? formData.platforms.filter(p => p !== platform)
-      : [...formData.platforms, platform];
+    const updatedPlatforms = formData.selectedPlatforms.includes(platform)
+      ? formData.selectedPlatforms.filter(p => p !== platform)
+      : [...formData.selectedPlatforms, platform];
     
     setFormData({
       ...formData,
-      platforms: updatedPlatforms
+      selectedPlatforms: updatedPlatforms
     });
   };
 
@@ -90,7 +189,7 @@ const Contact = () => {
           </h2>
           
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            {t('contact.subtitle')}
+            Complete our comprehensive onboarding form to begin your journey to creator success
           </p>
         </div>
 
@@ -101,178 +200,332 @@ const Contact = () => {
                 <div className="aqua-gradient p-2 rounded-lg mr-3">
                   <Send className="h-5 w-5 text-white" />
                 </div>
-                {t('contact.formTitle')}
+                Client Onboarding Application
               </h3>
               
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('contact.name')} *
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 placeholder-gray-400 bg-white/5"
-                      placeholder={t('contact.name')}
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('contact.email')} *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 placeholder-gray-400 bg-white/5"
-                      placeholder={t('contact.email')}
-                    />
-                  </div>
+              {/* Status Messages */}
+              {submitStatus.message && (
+                <div className={`mb-6 p-4 rounded-xl ${
+                  submitStatus.type === 'success' 
+                    ? 'bg-green-500/20 border border-green-500/30 text-green-300' 
+                    : 'bg-red-500/20 border border-red-500/30 text-red-300'
+                }`}>
+                  {submitStatus.message}
                 </div>
-                
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('contact.phone')}
-                    </label>
-                    <div className="flex">
-                      <div className="relative">
-                        <button
-                          type="button"
-                          onClick={() => setIsCountryDropdownOpen(!isCountryDropdownOpen)}
-                          className="flex items-center px-3 py-3 aqua-glass text-white rounded-l-xl border-r border-white/20 hover:bg-white/10 transition-all duration-300 min-w-[100px]"
-                        >
-                          <span className="mr-2">{selectedCountry?.flag}</span>
-                          <span className="text-sm">{formData.countryCode}</span>
-                          <ChevronDown className={`h-4 w-4 ml-1 transition-transform duration-200 ${
-                            isCountryDropdownOpen ? 'rotate-180' : ''
-                          }`} />
-                        </button>
-                        
-                        {isCountryDropdownOpen && (
-                          <div className="absolute top-full left-0 mt-1 w-64 aqua-glass-dark rounded-xl border border-white/20 shadow-2xl z-50 max-h-60 overflow-y-auto">
-                            <div className="p-2">
-                              {countryCodes.map((country) => (
-                                <button
-                                  key={country.code}
-                                  type="button"
-                                  onClick={() => handleCountryCodeChange(country.code)}
-                                  className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-left transition-all duration-200 ${
-                                    formData.countryCode === country.code
-                                      ? 'aqua-gradient text-white'
-                                      : 'text-gray-300 hover:bg-white/10'
-                                  }`}
-                                >
-                                  <span className="text-lg">{country.flag}</span>
-                                  <span className="text-sm font-medium">{country.code}</span>
-                                  <span className="text-xs text-gray-400">{country.country}</span>
-                                </button>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                      </div>
+              )}
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Basic Information */}
+                <div className="space-y-4">
+                  <h4 className="text-lg font-semibold text-white border-b border-white/20 pb-2">
+                    Basic Information
+                  </h4>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        {t('contact.name')} *
+                      </label>
                       <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
+                        type="text"
+                        name="name"
+                        required
+                        value={formData.name}
                         onChange={handleInputChange}
-                        className="flex-1 px-4 py-3 aqua-glass text-white rounded-r-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 placeholder-gray-400 bg-white/5"
-                        placeholder="123 456 7890"
+                        className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 placeholder-gray-400 bg-white/5"
+                        placeholder="Enter your full name"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        {t('contact.email')} *
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 placeholder-gray-400 bg-white/5"
+                        placeholder="your.email@example.com"
                       />
                     </div>
                   </div>
                   
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('contact.experience')} *
-                    </label>
-                    <select
-                      name="experience"
-                      required
-                      value={formData.experience}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
-                    >
-                      <option value="" className="bg-slate-800">{t('contact.experience')}</option>
-                      <option value="beginner" className="bg-slate-800">Beginner (0-6 months)</option>
-                      <option value="intermediate" className="bg-slate-800">Intermediate (6 months - 2 years)</option>
-                      <option value="experienced" className="bg-slate-800">Experienced (2+ years)</option>
-                    </select>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        Phone Number
+                      </label>
+                      <div className="flex">
+                        <div className="relative">
+                          <button
+                            type="button"
+                            onClick={() => setIsCountryDropdownOpen(!isCountryDropdownOpen)}
+                            className="flex items-center px-3 py-3 aqua-glass text-white rounded-l-xl border-r border-white/20 hover:bg-white/10 transition-all duration-300 min-w-[100px]"
+                          >
+                            <span className="mr-2">{selectedCountry?.flag}</span>
+                            <span className="text-sm">{formData.countryCode}</span>
+                            <ChevronDown className={`h-4 w-4 ml-1 transition-transform duration-200 ${
+                              isCountryDropdownOpen ? 'rotate-180' : ''
+                            }`} />
+                          </button>
+                          
+                          {isCountryDropdownOpen && (
+                            <div className="absolute top-full left-0 mt-1 w-64 aqua-glass-dark rounded-xl border border-white/20 shadow-2xl z-50 max-h-60 overflow-y-auto">
+                              <div className="p-2">
+                                {countryCodes.map((country) => (
+                                  <button
+                                    key={country.code}
+                                    type="button"
+                                    onClick={() => handleCountryCodeChange(country.code)}
+                                    className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-left transition-all duration-200 ${
+                                      formData.countryCode === country.code
+                                        ? 'aqua-gradient text-white'
+                                        : 'text-gray-300 hover:bg-white/10'
+                                    }`}
+                                  >
+                                    <span className="text-lg">{country.flag}</span>
+                                    <span className="text-sm font-medium">{country.code}</span>
+                                    <span className="text-xs text-gray-400">{country.country}</span>
+                                  </button>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                        <input
+                          type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          className="flex-1 px-4 py-3 aqua-glass text-white rounded-r-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 placeholder-gray-400 bg-white/5"
+                          placeholder="123 456 7890"
+                        />
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        Region
+                      </label>
+                      <input
+                        type="text"
+                        name="region"
+                        value={formData.region}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 placeholder-gray-400 bg-white/5"
+                        placeholder="Province or State"
+                      />
+                    </div>
                   </div>
                 </div>
-                
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Current Monthly Earnings
-                    </label>
-                    <select
-                      name="currentEarnings"
-                      value={formData.currentEarnings}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
-                    >
-                      <option value="" className="bg-slate-800">Select earnings range</option>
-                      <option value="0-0.5k" className="bg-slate-800">$0 - $500</option>
-                      <option value="0.5k-1k" className="bg-slate-800">$500 - $1,000</option>
-                      <option value="1k-5k" className="bg-slate-800">$1,000 - $5,000</option>
-                      <option value="5k-10k" className="bg-slate-800">$5,000 - $10,000</option>
-                      <option value="10k-20k" className="bg-slate-800">$10,000 - $20,000</option>
-                      <option value="20k-30k" className="bg-slate-800">$20,000 - $30,000</option>
-                      <option value="30k+" className="bg-slate-800">$50,000+</option>
-                    </select>
+
+                {/* Communication & Referral */}
+                <div className="space-y-4">
+                  <h4 className="text-lg font-semibold text-white border-b border-white/20 pb-2">
+                    Communication Preferences
+                  </h4>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        Preferred Communication Language *
+                      </label>
+                      <select
+                        name="communicationLanguage"
+                        required
+                        value={formData.communicationLanguage}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
+                      >
+                        <option value="" className="bg-slate-800">Select your preferred language</option>
+                        {communicationLanguages.map((lang) => (
+                          <option key={lang.code} value={lang.code} className="bg-slate-800">
+                            {lang.flag} {lang.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        Referral Code <span className="text-gray-500">(Optional)</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="referralCode"
+                        value={formData.referralCode}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 placeholder-gray-400 bg-white/5"
+                        placeholder="Enter referral code if you have one"
+                      />
+                    </div>
                   </div>
+                </div>
+
+                {/* Service Selection */}
+                <div className="space-y-4">
+                  <h4 className="text-lg font-semibold text-white border-b border-white/20 pb-2">
+                    Service Requirements
+                  </h4>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-3">
+                      Primary Service Type *
+                    </label>
+                    <div className="grid md:grid-cols-2 gap-3">
+                      {serviceTypes.map((service) => (
+                        <label key={service.value} className="flex items-center space-x-3 cursor-pointer">
+                          <input
+                            type="radio"
+                            name="serviceType"
+                            value={service.value}
+                            checked={formData.serviceType === service.value}
+                            onChange={handleInputChange}
+                            className="w-4 h-4 text-purple-400 bg-transparent border-gray-500 focus:ring-purple-400"
+                            required
+                          />
+                          <div className="flex items-center space-x-2">
+                            <service.icon className="h-4 w-4 text-purple-400" />
+                            <span className="text-sm text-gray-300">{service.label}</span>
+                          </div>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Platform Information */}
+                <div className="space-y-4">
+                  <h4 className="text-lg font-semibold text-white border-b border-white/20 pb-2">
+                    Platform Information
+                  </h4>
                   
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Income Goals (Monthly)
+                      Existing Platform Accounts
                     </label>
-                    <select
-                      name="goals"
-                      value={formData.goals}
+                    <textarea
+                      name="existingPlatformAccounts"
+                      rows={3}
+                      value={formData.existingPlatformAccounts}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
-                    >
-                      <option value="" className="bg-slate-800">Select target income</option>
-                      <option value="1k-2k" className="bg-slate-800">$1,000 - $2,000</option>
-                      <option value="2k-5k" className="bg-slate-800">$2,000 - $5,000</option>
-                      <option value="5k-10k" className="bg-slate-800">$5,000 - $10,000</option>
-                      <option value="10k-20k" className="bg-slate-800">$10,000 - $20,000</option>
-                      <option value="20k-50k" className="bg-slate-800">$10,000 - $20,000</option>
-                      <option value="50k+" className="bg-slate-800">$50,000+</option>
-                    </select>
+                      className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 placeholder-gray-400 bg-white/5"
+                      placeholder="Enter your existing social media/platform handles separated by commas (e.g., @username1, @username2, @username3)"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-3">
+                      Platforms of Interest *
+                    </label>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                      {availablePlatforms.map((platform) => (
+                        <label key={platform} className="flex items-center space-x-2 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={formData.selectedPlatforms.includes(platform)}
+                            onChange={() => handlePlatformChange(platform)}
+                            className="w-4 h-4 text-purple-400 bg-transparent border-gray-500 rounded focus:ring-purple-400"
+                          />
+                          <span className="text-sm text-gray-300">{platform}</span>
+                        </label>
+                      ))}
+                    </div>
                   </div>
                 </div>
-                
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Content Type
-                    </label>
-                    <select
-                      name="contentType"
-                      value={formData.contentType}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
-                    >
-                      <option value="" className="bg-slate-800">Select content type</option>
-                      <option value="nsfw" className="bg-slate-800">NSFW</option>
-                      <option value="fetish" className="bg-slate-800">Fetish</option>
-                      <option value="asmr" className="bg-slate-800">ASMR</option>
-                      <option value="cosplay/roleplay" className="bg-slate-800">COSPLAY/ROLEPLAY</option>
-                      <option value="humiliation" className="bg-slate-800">Humiliation</option>
-                      <option value="soft" className="bg-slate-800">SOFT</option>
-                      <option value="kink" className="bg-slate-800">Kink</option>
-                      <option value="custom" className="bg-slate-800">Custom (discussion will take place)</option>
-                    </select>
+
+                {/* Experience & Goals */}
+                <div className="space-y-4">
+                  <h4 className="text-lg font-semibold text-white border-b border-white/20 pb-2">
+                    Experience & Goals
+                  </h4>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        Experience Level *
+                      </label>
+                      <select
+                        name="experience"
+                        required
+                        value={formData.experience}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
+                      >
+                        <option value="" className="bg-slate-800">Select your experience level</option>
+                        <option value="beginner" className="bg-slate-800">Beginner (0-6 months)</option>
+                        <option value="intermediate" className="bg-slate-800">Intermediate (6 months - 2 years)</option>
+                        <option value="experienced" className="bg-slate-800">Experienced (2+ years)</option>
+                      </select>
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        Current Monthly Earnings
+                      </label>
+                      <select
+                        name="currentEarnings"
+                        value={formData.currentEarnings}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
+                      >
+                        <option value="" className="bg-slate-800">Select earnings range</option>
+                        <option value="0-0.5k" className="bg-slate-800">$0 - $500</option>
+                        <option value="0.5k-1k" className="bg-slate-800">$500 - $1,000</option>
+                        <option value="1k-5k" className="bg-slate-800">$1,000 - $5,000</option>
+                        <option value="5k-10k" className="bg-slate-800">$5,000 - $10,000</option>
+                        <option value="10k-20k" className="bg-slate-800">$10,000 - $20,000</option>
+                        <option value="20k-50k" className="bg-slate-800">$20,000 - $50,000</option>
+                        <option value="50k+" className="bg-slate-800">$50,000+</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        Income Goals (Monthly)
+                      </label>
+                      <select
+                        name="goals"
+                        value={formData.goals}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
+                      >
+                        <option value="" className="bg-slate-800">Select target income</option>
+                        <option value="1k-2k" className="bg-slate-800">$1,000 - $2,000</option>
+                        <option value="2k-5k" className="bg-slate-800">$2,000 - $5,000</option>
+                        <option value="5k-10k" className="bg-slate-800">$5,000 - $10,000</option>
+                        <option value="10k-20k" className="bg-slate-800">$10,000 - $20,000</option>
+                        <option value="20k-50k" className="bg-slate-800">$20,000 - $50,000</option>
+                        <option value="50k+" className="bg-slate-800">$50,000+</option>
+                      </select>
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        Content Type
+                      </label>
+                      <select
+                        name="contentType"
+                        value={formData.contentType}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
+                      >
+                        <option value="" className="bg-slate-800">Select content type</option>
+                        <option value="lifestyle" className="bg-slate-800">Lifestyle</option>
+                        <option value="fitness" className="bg-slate-800">Fitness</option>
+                        <option value="fashion" className="bg-slate-800">Fashion</option>
+                        <option value="adult" className="bg-slate-800">Adult Content</option>
+                        <option value="fetish" className="bg-slate-800">Fetish</option>
+                        <option value="asmr" className="bg-slate-800">ASMR</option>
+                        <option value="cosplay" className="bg-slate-800">Cosplay/Roleplay</option>
+                        <option value="other" className="bg-slate-800">Other</option>
+                      </select>
+                    </div>
                   </div>
                   
                   <div>
@@ -295,28 +548,10 @@ const Contact = () => {
                   </div>
                 </div>
                 
+                {/* Additional Message */}
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">
-                    {t('contact.platforms')} *
-                  </label>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    {['OnlyFans', 'Fansly', 'FansOne', 'ManyVids', 'Swame', 'Fanvue', 'SpankChain', 'FanCentro', 'StripChat', 'SellyFans', 'FansMine', 'Instagram', 'Other'].map((platform) => (
-                      <label key={platform} className="flex items-center space-x-2 cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked={formData.platforms.includes(platform)}
-                          onChange={() => handlePlatformChange(platform)}
-                          className="w-4 h-4 text-purple-400 bg-transparent border-gray-500 rounded focus:ring-purple-400"
-                        />
-                        <span className="text-sm text-gray-300">{platform}</span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
-                    {t('contact.message')}
+                    Additional Information
                   </label>
                   <textarea
                     name="message"
@@ -324,16 +559,26 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 placeholder-gray-400 bg-white/5"
-                    placeholder="Share your content creation goals, challenges you're facing, and what you hope to achieve with professional management..."
+                    placeholder="Tell us about your goals, challenges, or any specific requirements you have..."
                   />
                 </div>
                 
                 <button
                   type="submit"
-                  className="w-full aqua-gradient text-white py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/40 transform hover:-translate-y-2 hover:scale-105 transition-all duration-500 flex items-center justify-center edge-glow"
+                  disabled={isSubmitting}
+                  className="w-full aqua-gradient text-white py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/40 transform hover:-translate-y-2 hover:scale-105 transition-all duration-500 flex items-center justify-center edge-glow disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {t('contact.submit')}
-                  <Send className="ml-2 h-5 w-5" />
+                  {isSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                      Submitting Application...
+                    </>
+                  ) : (
+                    <>
+                      Submit Application
+                      <Send className="ml-2 h-5 w-5" />
+                    </>
+                  )}
                 </button>
               </form>
             </div>
@@ -345,7 +590,7 @@ const Contact = () => {
                 <div className="aqua-gradient p-2 rounded-lg mr-3">
                   <Phone className="h-5 w-5 text-white" />
                 </div>
-                Get in Touch
+                Contact Information
               </h3>
               
               <div className="space-y-6">
@@ -361,21 +606,21 @@ const Contact = () => {
                 
                 <div className="flex items-start space-x-4">
                   <div className="aqua-gradient p-2 rounded-lg">
-                    <Phone className="h-5 w-5 text-white" />
+                    <Clock className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <div className="font-medium text-white">Phone</div>
-                    <div className="text-gray-300">let's connect via email first</div>
+                    <div className="font-medium text-white">Response Time</div>
+                    <div className="text-gray-300">Within 24 hours</div>
                   </div>
                 </div>
                 
                 <div className="flex items-start space-x-4">
                   <div className="aqua-gradient p-2 rounded-lg">
-                    <Clock className="h-5 w-5 text-white" />
+                    <Globe className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <div className="font-medium text-white">Hours</div>
-                    <div className="text-gray-300">24/7 Support Available</div>
+                    <div className="font-medium text-white">Languages</div>
+                    <div className="text-gray-300">English, 中文, 日本語</div>
                   </div>
                 </div>
                 
@@ -392,14 +637,23 @@ const Contact = () => {
             </div>
             
             <div className="aqua-gradient text-white rounded-3xl p-8 edge-glow">
-              <h3 className="text-xl font-bold mb-4">Quick Response</h3>
-              <p className="text-white/80 mb-4">
-                We typically respond to applications within 24 hours. Our team will review your application and get back to you in your language (ZH-CN).
-              </p>
-              <div className="bg-white/20 p-4 rounded-lg">
-                <div className="text-center">
-                  <div className="text-2xl font-bold">{"< 24hrs"}</div>
-                  <div className="text-sm text-white/80">Response Time</div>
+              <h3 className="text-xl font-bold mb-4">Application Process</h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-sm font-bold">1</div>
+                  <span className="text-white/90">Submit application form</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-sm font-bold">2</div>
+                  <span className="text-white/90">Initial consultation call</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-sm font-bold">3</div>
+                  <span className="text-white/90">Custom strategy development</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-sm font-bold">4</div>
+                  <span className="text-white/90">Begin transformation</span>
                 </div>
               </div>
             </div>
