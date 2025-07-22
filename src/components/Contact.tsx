@@ -105,7 +105,7 @@ const Contact = () => {
       setTimeout(() => {
         setSubmitStatus({ 
           type: 'success', 
-          message: 'Application submitted successfully! We will contact you within 24 hours.' 
+          message: 'Hurray, Application submitted successfully! We will contact you within 24 hours. Good things are coming your way.' 
         });
         setIsSubmitting(false);
         
@@ -233,7 +233,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 placeholder-gray-400 bg-white/5"
-                        placeholder="Enter your full name"
+                        placeholder="Enter your full name (Same as National ID)"
                       />
                     </div>
                     
@@ -516,13 +516,16 @@ const Contact = () => {
                         className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
                       >
                         <option value="" className="bg-slate-800">Select content type</option>
-                        <option value="lifestyle" className="bg-slate-800">Lifestyle</option>
-                        <option value="fitness" className="bg-slate-800">Fitness</option>
-                        <option value="fashion" className="bg-slate-800">Fashion</option>
-                        <option value="adult" className="bg-slate-800">Adult Content</option>
+                        <option value="nsfw-solo" className="bg-slate-800">NSFW(solo)</option>
+                        <option value="nsfw-multi" className="bg-slate-800">NSFW(multi)</option>
+                        <option value="povsex" className="bg-slate-800">POV SEX</option>
+                        <option value="tease" className="bg-slate-800">Tease</option>
                         <option value="fetish" className="bg-slate-800">Fetish</option>
                         <option value="asmr" className="bg-slate-800">ASMR</option>
                         <option value="cosplay" className="bg-slate-800">Cosplay/Roleplay</option>
+                        <option value="lifestyle" className="bg-slate-800">Lifestyle</option>
+                        <option value="fitness" className="bg-slate-800">Fitness</option>
+                        <option value="fashion" className="bg-slate-800">Fashion</option>
                         <option value="other" className="bg-slate-800">Other</option>
                       </select>
                     </div>
