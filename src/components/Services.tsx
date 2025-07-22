@@ -3,8 +3,6 @@ import { Camera, MessageCircle, BarChart3, Settings, Users, Shield, Sparkles, Za
 import { useLanguage } from '../contexts/LanguageContext';
 
 const PlatformIntegration = () => {
-  const { t } = useLanguage();
-  
   const platforms = [
     { name: 'OnlyFans', logo: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=100&h=100' },
     { name: 'Fansly', logo: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=100&h=100' },
