@@ -55,10 +55,10 @@ const Header = () => {
           
           <nav className="hidden lg:flex items-center space-x-4 xl:space-x-8">
             {[
-              { key: 'services', label: t('header.services') || 'Services' },
-              { key: 'testimonials', label: t('header.success') || 'Success Stories' },
-              { key: 'pricing', label: t('header.pricing') || 'Pricing' },
-              { key: 'contact', label: t('header.apply') || 'Apply' }
+              { key: 'services', label: t('header.services') },
+              { key: 'testimonials', label: t('header.success') },
+              { key: 'pricing', label: t('header.pricing') },
+              { key: 'contact', label: t('header.apply') }
             ].map((item, index) => (
               <a 
                 key={item.key}
@@ -76,11 +76,8 @@ const Header = () => {
             ))}
           </nav>
 
-          <div className="flex items-center space-x-2 lg:space-x-4">
-            <LanguageSelector />
-          </div>
-
           <div className="hidden lg:flex items-center space-x-4">
+            <LanguageSelector />
             <button 
               onClick={() => {
                 const element = document.getElementById('contact');
@@ -88,20 +85,23 @@ const Header = () => {
                   element.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="relative btn-modern aqua-gradient text-white px-3 xl:px-8 py-3 rounded-xl font-bold tracking-wide hover:shadow-2xl hover:shadow-purple-500/30 transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 group overflow-hidden edge-glow"
+              className="relative btn-modern aqua-gradient text-white px-4 xl:px-8 py-3 rounded-xl font-bold tracking-wide hover:shadow-2xl hover:shadow-purple-500/30 transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 group overflow-hidden edge-glow"
             >
               <span className="relative z-10 flex items-center">
                 <Zap className="mr-2 h-4 w-4 group-hover:animate-pulse" />
-                <span className="hidden xl:inline">{(t('header.joinElite') || 'Join Elite').toUpperCase()}</span>
+                <span className="hidden xl:inline">{t('header.joinElite').toUpperCase()}</span>
                 <span className="xl:hidden">JOIN</span>
               </span>
             </button>
           </div>
 
-          <div className="lg:hidden">
+          <div className="flex items-center space-x-3 lg:hidden">
+            <div className="md:hidden">
+              <LanguageSelector />
+            </div>
             <button 
-              className="text-gray-300 hover:text-white transition-colors duration-300 p-2"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden text-gray-300 hover:text-white transition-colors duration-300 p-2"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -114,10 +114,10 @@ const Header = () => {
         }`}>
           <div className="aqua-glass-dark rounded-2xl mx-4 mb-4 p-6 space-y-4 edge-glow">
             {[
-              { key: 'services', label: t('header.services') || 'Services' },
-              { key: 'testimonials', label: t('header.success') || 'Success Stories' },
-              { key: 'pricing', label: t('header.pricing') || 'Pricing' },
-              { key: 'contact', label: t('header.apply') || 'Apply' }
+              { key: 'services', label: t('header.services') },
+              { key: 'testimonials', label: t('header.success') },
+              { key: 'pricing', label: t('header.pricing') },
+              { key: 'contact', label: t('header.apply') }
             ].map((item) => (
               <a 
                 key={item.key}
@@ -131,6 +131,9 @@ const Header = () => {
                 {item.label}
               </a>
             ))}
+            <div className="hidden md:flex items-center justify-between pt-4 border-t border-white/10">
+              <LanguageSelector />
+            </div>
             <button 
               onClick={() => {
                 const element = document.getElementById('contact');
@@ -141,7 +144,7 @@ const Header = () => {
               }}
               className="w-full aqua-gradient text-white px-6 py-3 rounded-xl font-bold tracking-wide mt-4 edge-glow"
             >
-              {(t('header.joinElite') || 'Join Elite').toUpperCase()}
+              {t('header.joinElite').toUpperCase()}
             </button>
           </div>
         </div>

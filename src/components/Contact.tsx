@@ -81,16 +81,16 @@ const Contact = () => {
         <div className="text-center mb-16 animate-slide-up-fade">
           <div className="inline-flex items-center aqua-glass px-6 py-3 rounded-full mb-6 edge-glow">
             <Send className="h-5 w-5 text-purple-400 mr-3 animate-pulse" />
-            <span className="text-sm font-bold aqua-text tracking-wider">{(t('contact.badge') || 'Get Started Today').toUpperCase()}</span>
+            <span className="text-sm font-bold aqua-text tracking-wider">{t('contact.badge').toUpperCase()}</span>
           </div>
           
           <h2 className="font-display text-4xl lg:text-5xl font-black text-white mb-6 tracking-tight">
-            {t('contact.title') || 'Ready to Transform'}
-            <span className="block aqua-text"> {t('contact.titleHighlight') || 'Your Success?'}</span>
+            {t('contact.title')}
+            <span className="block aqua-text"> {t('contact.titleHighlight')}</span>
           </h2>
           
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            {t('contact.subtitle') || 'Complete our application form and let\'s discuss how we can help you achieve your goals.'}
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -101,14 +101,14 @@ const Contact = () => {
                 <div className="aqua-gradient p-2 rounded-lg mr-3">
                   <Send className="h-5 w-5 text-white" />
                 </div>
-                {t('contact.formTitle') || 'Application Form'}
+                {t('contact.formTitle')}
               </h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('contact.name') || 'Full Name'} *
+                      {t('contact.name')} *
                     </label>
                     <input
                       type="text"
@@ -117,13 +117,13 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 placeholder-gray-400 bg-white/5"
-                      placeholder={t('contact.name') || 'Full Name'}
+                      placeholder={t('contact.name')}
                     />
                   </div>
                   
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('contact.email') || 'Email Address'} *
+                      {t('contact.email')} *
                     </label>
                     <input
                       type="email"
@@ -132,7 +132,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 placeholder-gray-400 bg-white/5"
-                      placeholder={t('contact.email') || 'Email Address'}
+                      placeholder={t('contact.email')}
                     />
                   </div>
                 </div>
@@ -140,7 +140,7 @@ const Contact = () => {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('contact.phone') || 'Phone Number'}
+                      {t('contact.phone')}
                     </label>
                     <div className="flex">
                       <div className="relative">
@@ -192,7 +192,7 @@ const Contact = () => {
                   
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('contact.experience') || 'Experience Level'} *
+                      {t('contact.experience')} *
                     </label>
                     <select
                       name="experience"
@@ -201,10 +201,10 @@ const Contact = () => {
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
                     >
-                      <option value="" className="bg-slate-800">{t('contact.experience') || 'Experience Level'}</option>
-                      <option value="beginner" className="bg-slate-800">{t('contact.experience.beginner') || 'Beginner (0-6 months)'}</option>
-                      <option value="intermediate" className="bg-slate-800">{t('contact.experience.intermediate') || 'Intermediate (6 months - 2 years)'}</option>
-                      <option value="experienced" className="bg-slate-800">{t('contact.experience.experienced') || 'Experienced (2+ years)'}</option>
+                      <option value="" className="bg-slate-800">{t('contact.experience')}</option>
+                      <option value="beginner" className="bg-slate-800">Beginner (0-6 months)</option>
+                      <option value="intermediate" className="bg-slate-800">Intermediate (6 months - 2 years)</option>
+                      <option value="experienced" className="bg-slate-800">Experienced (2+ years)</option>
                     </select>
                   </div>
                 </div>
@@ -212,7 +212,7 @@ const Contact = () => {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('contact.earnings') || 'Current Monthly Earnings'}
+                      Current Monthly Earnings
                     </label>
                     <select
                       name="currentEarnings"
@@ -220,7 +220,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
                     >
-                      <option value="" className="bg-slate-800">{t('contact.earnings.select') || 'Select earnings range'}</option>
+                      <option value="" className="bg-slate-800">Select earnings range</option>
                       <option value="0-0.5k" className="bg-slate-800">$0 - $500</option>
                       <option value="0.5k-1k" className="bg-slate-800">$500 - $1,000</option>
                       <option value="1k-5k" className="bg-slate-800">$1,000 - $5,000</option>
@@ -233,7 +233,7 @@ const Contact = () => {
                   
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('contact.goals') || 'Income Goals (Monthly)'}
+                      Income Goals (Monthly)
                     </label>
                     <select
                       name="goals"
@@ -241,7 +241,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
                     >
-                      <option value="" className="bg-slate-800">{t('contact.goals.select') || 'Select target income'}</option>
+                      <option value="" className="bg-slate-800">Select target income</option>
                       <option value="1k-2k" className="bg-slate-800">$1,000 - $2,000</option>
                       <option value="2k-5k" className="bg-slate-800">$2,000 - $5,000</option>
                       <option value="5k-10k" className="bg-slate-800">$5,000 - $10,000</option>
@@ -255,7 +255,7 @@ const Contact = () => {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('contact.contentType') || 'Content Type'}
+                      Content Type
                     </label>
                     <select
                       name="contentType"
@@ -263,7 +263,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
                     >
-                      <option value="" className="bg-slate-800">{t('contact.contentType.select') || 'Select content type'}</option>
+                      <option value="" className="bg-slate-800">Select content type</option>
                       <option value="nsfw" className="bg-slate-800">NSFW</option>
                       <option value="fetish" className="bg-slate-800">Fetish</option>
                       <option value="asmr" className="bg-slate-800">ASMR</option>
@@ -277,7 +277,7 @@ const Contact = () => {
                   
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('contact.audience') || 'Current Audience Size'}
+                      Current Audience Size
                     </label>
                     <select
                       name="audience"
@@ -285,7 +285,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
                     >
-                      <option value="" className="bg-slate-800">{t('contact.audience.select') || 'Select audience size'}</option>
+                      <option value="" className="bg-slate-800">Select audience size</option>
                       <option value="0-1k" className="bg-slate-800">0 - 1,000 followers</option>
                       <option value="1k-10k" className="bg-slate-800">1,000 - 10,000 followers</option>
                       <option value="10k-50k" className="bg-slate-800">10,000 - 50,000 followers</option>
@@ -297,7 +297,7 @@ const Contact = () => {
                 
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">
-                    {t('contact.platforms') || 'Platforms of Interest'} *
+                    {t('contact.platforms')} *
                   </label>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                     {['OnlyFans', 'Fansly', 'FansOne', 'ManyVids', 'Swame', 'Fanvue', 'SpankChain', 'FanCentro', 'StripChat', 'SellyFans', 'FansMine', 'Instagram', 'Other'].map((platform) => (
@@ -316,7 +316,7 @@ const Contact = () => {
                 
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">
-                    {t('contact.message') || 'Tell us about yourself and your goals'}
+                    {t('contact.message')}
                   </label>
                   <textarea
                     name="message"
@@ -324,7 +324,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 placeholder-gray-400 bg-white/5"
-                    placeholder={t('contact.message.placeholder') || "Share your content creation goals, challenges you're facing, and what you hope to achieve with professional management..."}
+                    placeholder="Share your content creation goals, challenges you're facing, and what you hope to achieve with professional management..."
                   />
                 </div>
                 
@@ -332,7 +332,7 @@ const Contact = () => {
                   type="submit"
                   className="w-full aqua-gradient text-white py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/40 transform hover:-translate-y-2 hover:scale-105 transition-all duration-500 flex items-center justify-center edge-glow"
                 >
-                  {t('contact.submit') || 'Submit Application'}
+                  {t('contact.submit')}
                   <Send className="ml-2 h-5 w-5" />
                 </button>
               </form>
@@ -345,7 +345,7 @@ const Contact = () => {
                 <div className="aqua-gradient p-2 rounded-lg mr-3">
                   <Phone className="h-5 w-5 text-white" />
                 </div>
-                {t('contact.getInTouch') || 'Get in Touch'}
+                Get in Touch
               </h3>
               
               <div className="space-y-6">
@@ -354,7 +354,7 @@ const Contact = () => {
                     <Mail className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <div className="font-medium text-white">{t('contact.email.label') || 'Email'}</div>
+                    <div className="font-medium text-white">Email</div>
                     <div className="text-gray-300">team@fanfirst.studio</div>
                   </div>
                 </div>
@@ -364,8 +364,8 @@ const Contact = () => {
                     <Phone className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <div className="font-medium text-white">{t('contact.phone.label') || 'Phone'}</div>
-                    <div className="text-gray-300">{t('contact.phone.desc') || "let's connect via email first"}</div>
+                    <div className="font-medium text-white">Phone</div>
+                    <div className="text-gray-300">let's connect via email first</div>
                   </div>
                 </div>
                 
@@ -374,8 +374,8 @@ const Contact = () => {
                     <Clock className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <div className="font-medium text-white">{t('contact.hours.label') || 'Hours'}</div>
-                    <div className="text-gray-300">{t('contact.hours.desc') || '24/7 Support Available'}</div>
+                    <div className="font-medium text-white">Hours</div>
+                    <div className="text-gray-300">24/7 Support Available</div>
                   </div>
                 </div>
                 
@@ -384,7 +384,7 @@ const Contact = () => {
                     <MapPin className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <div className="font-medium text-white">{t('contact.location.label') || 'Location'}</div>
+                    <div className="font-medium text-white">Location</div>
                     <div className="text-gray-300">Los Angeles, CA</div>
                   </div>
                 </div>
@@ -394,12 +394,12 @@ const Contact = () => {
             <div className="aqua-gradient text-white rounded-3xl p-8 edge-glow">
               <h3 className="text-xl font-bold mb-4">Quick Response</h3>
               <p className="text-white/80 mb-4">
-               {t('contact.response.desc') || 'We typically respond to applications within 24 hours. Our team will review your application and get back to you in your language.'}
+                We typically respond to applications within 24 hours. Our team will review your application and get back to you in your language (ZH-CN).
               </p>
               <div className="bg-white/20 p-4 rounded-lg">
                 <div className="text-center">
                   <div className="text-2xl font-bold">{"< 24hrs"}</div>
-                 <div className="text-sm text-white/80">{t('contact.response.time') || 'Response Time'}</div>
+                  <div className="text-sm text-white/80">Response Time</div>
                 </div>
               </div>
             </div>

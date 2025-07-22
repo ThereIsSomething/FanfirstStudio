@@ -8,130 +8,130 @@ const PricingPlans = () => {
 
   const onetimePlans = [
     {
-      name: t('pricing.starter.name') || "Starter Setup",
-      description: t('pricing.starter.desc') || "Perfect for new creators ready to launch professionally",
+      name: "Starter Setup",
+      description: "Perfect for new creators ready to launch professionally",
       price: 499,
       icon: Sparkles,
       features: [
-        t('pricing.starter.feature1') || "Complete account setup & optimization",
-        t('pricing.starter.feature2') || "Professional profile creation",
-        t('pricing.starter.feature3') || "Initial content strategy consultation",
-        t('pricing.starter.feature4') || "Platform guidelines training",
-        t('pricing.starter.feature5') || "Basic branding package",
-        t('pricing.starter.feature6') || "30-day email support",
-        t('pricing.starter.feature7') || "Getting started guide",
-        t('pricing.starter.feature8') || "Platform best practices training"
+        "Complete account setup & optimization",
+        "Professional profile creation",
+        "Initial content strategy consultation",
+        "Platform guidelines training",
+        "Basic branding package",
+        "30-day email support",
+        "Getting started guide",
+        "Platform best practices training"
       ],
       popular: false,
       premium: false,
-      buttonText: t('pricing.getStarted') || "Get Started"
+      buttonText: "Get Started"
     },
     {
-      name: t('pricing.professional.name') || "Professional Launch",
-      description: t('pricing.professional.desc') || "Comprehensive setup for serious creators",
+      name: "Professional Launch",
+      description: "Comprehensive setup for serious creators",
       price: 999,
       icon: TrendingUp,
       features: [
-        t('pricing.professional.feature1') || "Everything in Starter Setup",
-        t('pricing.professional.feature2') || "Advanced content strategy development",
-        t('pricing.professional.feature3') || "Professional photo shoot coordination",
-        t('pricing.professional.feature4') || "Multi-platform account setup",
-        t('pricing.professional.feature5') || "Custom branding & design package",
-        t('pricing.professional.feature6') || "Marketing campaign setup",
-        t('pricing.professional.feature7') || "Revenue optimization consultation",
-        t('pricing.professional.feature8') || "90-day priority support",
-        t('pricing.professional.feature9') || "Performance analytics setup"
+        "Everything in Starter Setup",
+        "Advanced content strategy development",
+        "Professional photo shoot coordination",
+        "Multi-platform account setup",
+        "Custom branding & design package",
+        "Marketing campaign setup",
+        "Revenue optimization consultation",
+        "90-day priority support",
+        "Performance analytics setup"
       ],
       popular: true,
       premium: false,
-      buttonText: t('pricing.choosePlan') || "Launch Professional"
+      buttonText: "Launch Professional"
     },
     {
-      name: t('pricing.elite.name') || "Elite Empire Builder",
-      description: t('pricing.elite.desc') || "The ultimate creator transformation package",
+      name: "Elite Empire Builder",
+      description: "The ultimate creator transformation package",
       price: 2499,
       icon: Crown,
       features: [
-        t('pricing.elite.feature1') || "Everything in Professional Launch",
-        t('pricing.elite.feature2') || "Dedicated account manager assignment",
-        t('pricing.elite.feature3') || "Custom website & landing pages",
-        t('pricing.elite.feature4') || "Professional video production",
-        t('pricing.elite.feature5') || "Legal consultation & contracts",
-        t('pricing.elite.feature6') || "Advanced marketing automation",
-        t('pricing.elite.feature7') || "Personal brand development",
-        t('pricing.elite.feature8') || "VIP creator network access",
-        t('pricing.elite.feature9') || "6-month elite support",
-        t('pricing.elite.feature10') || "Revenue guarantee program"
+        "Everything in Professional Launch",
+        "Dedicated account manager assignment",
+        "Custom website & landing pages",
+        "Professional video production",
+        "Legal consultation & contracts",
+        "Advanced marketing automation",
+        "Personal brand development",
+        "VIP creator network access",
+        "6-month elite support",
+        "Revenue guarantee program"
       ],
       popular: false,
       premium: true,
-      buttonText: t('pricing.getElite') || "Build Empire"
+      buttonText: "Build Empire"
     }
   ];
 
   const monthlyPlans = [
     {
-      name: t('pricing.growth.name') || "Growth Partner",
-      description: t('pricing.growth.desc') || "Ongoing support for consistent growth",
+      name: "Growth Partner",
+      description: "Ongoing support for consistent growth",
       price: 297,
       icon: Sparkles,
       features: [
-        t('pricing.growth.feature1') || "Monthly strategy sessions",
-        t('pricing.growth.feature2') || "Content planning & optimization",
-        t('pricing.growth.feature3') || "Basic chat management (20 hrs/week)",
-        t('pricing.growth.feature4') || "Weekly performance reports",
-        t('pricing.growth.feature5') || "Email & phone support",
-        t('pricing.growth.feature6') || "Platform optimization",
-        t('pricing.growth.feature7') || "Basic marketing campaigns",
-        t('pricing.growth.feature8') || "Revenue tracking & analysis"
+        "Monthly strategy sessions",
+        "Content planning & optimization",
+        "Basic chat management (20 hrs/week)",
+        "Weekly performance reports",
+        "Email & phone support",
+        "Platform optimization",
+        "Basic marketing campaigns",
+        "Revenue tracking & analysis"
       ],
       popular: false,
       premium: false,
-      buttonText: t('pricing.getStarted') || "Start Growing"
+      buttonText: "Start Growing"
     },
     {
-      name: t('pricing.success.name') || "Success Accelerator",
-      description: t('pricing.success.desc') || "Full-service management for serious creators",
+      name: "Success Accelerator",
+      description: "Full-service management for serious creators",
       price: 597,
       icon: TrendingUp,
       features: [
-        t('pricing.success.feature1') || "Everything in Growth Partner",
-        t('pricing.success.feature2') || "Full chat management (40+ hrs/week)",
-        t('pricing.success.feature3') || "Advanced content strategy",
-        t('pricing.success.feature4') || "Daily performance monitoring",
-        t('pricing.success.feature5') || "Priority support (24/7)",
-        t('pricing.success.feature6') || "Multi-platform management",
-        t('pricing.success.feature7') || "Advanced marketing campaigns",
-        t('pricing.success.feature8') || "Revenue optimization",
-        t('pricing.success.feature9') || "Monthly strategy calls",
-        t('pricing.success.feature10') || "Custom promotional materials"
+        "Everything in Growth Partner",
+        "Full chat management (40+ hrs/week)",
+        "Advanced content strategy",
+        "Daily performance monitoring",
+        "Priority support (24/7)",
+        "Multi-platform management",
+        "Advanced marketing campaigns",
+        "Revenue optimization",
+        "Monthly strategy calls",
+        "Custom promotional materials"
       ],
       popular: true,
       premium: false,
-      buttonText: t('pricing.choosePlan') || "Accelerate Success"
+      buttonText: "Accelerate Success"
     },
     {
-      name: t('pricing.domination.name') || "Elite Domination",
-      description: t('pricing.domination.desc') || "Premium management for top-tier creators",
+      name: "Elite Domination",
+      description: "Premium management for top-tier creators",
       price: 1197,
       icon: Crown,
       features: [
-        t('pricing.domination.feature1') || "Everything in Success Accelerator",
-        t('pricing.domination.feature2') || "Dedicated account manager",
-        t('pricing.domination.feature3') || "Premium chat operators",
-        t('pricing.domination.feature4') || "Advanced analytics & insights",
-        t('pricing.domination.feature5') || "VIP support (instant response)",
-        t('pricing.domination.feature6') || "Unlimited platform management",
-        t('pricing.domination.feature7') || "Celebrity-level marketing",
-        t('pricing.domination.feature8') || "Legal & privacy protection",
-        t('pricing.domination.feature9') || "Personal assistant services",
-        t('pricing.domination.feature10') || "Exclusive creator events",
-        t('pricing.domination.feature11') || "Revenue guarantee",
-        t('pricing.domination.feature12') || "Custom business development"
+        "Everything in Success Accelerator",
+        "Dedicated account manager",
+        "Premium chat operators",
+        "Advanced analytics & insights",
+        "VIP support (instant response)",
+        "Unlimited platform management",
+        "Celebrity-level marketing",
+        "Legal & privacy protection",
+        "Personal assistant services",
+        "Exclusive creator events",
+        "Revenue guarantee",
+        "Custom business development"
       ],
       popular: false,
       premium: true,
-      buttonText: t('pricing.getElite') || "Dominate Market"
+      buttonText: "Dominate Market"
     }
   ];
 
@@ -166,16 +166,16 @@ const PricingPlans = () => {
         <div className="text-center mb-16 animate-slide-up-fade">
           <div className="inline-flex items-center aqua-glass px-6 py-3 rounded-full mb-6 edge-glow">
             <Star className="h-5 w-5 text-purple-400 mr-3 animate-pulse" />
-            <span className="text-sm font-bold aqua-text tracking-wider">{(t('pricing.badge') || 'PREMIUM PRICING PLANS').toUpperCase()}</span>
+            <span className="text-sm font-bold aqua-text tracking-wider">PREMIUM PRICING PLANS</span>
           </div>
           
           <h2 className="font-display text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight">
-            {t('pricing.title') || 'Choose Your'}
-            <span className="block aqua-text"> {t('pricing.titleHighlight') || 'Success Investment'}</span>
+            Choose Your
+            <span className="block aqua-text"> Success Investment</span>
           </h2>
           
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            {t('pricing.subtitle') || 'Whether you need a one-time setup or ongoing management, we have the perfect plan to transform your creator business.'}
+            Whether you need a one-time setup or ongoing management, we have the perfect plan to transform your creator business.
           </p>
         </div>
 
@@ -192,8 +192,8 @@ const PricingPlans = () => {
                 }`}
               >
                 <DollarSign className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2" />
-                <span className="hidden sm:inline">{t('pricing.onetime') || 'One-Time Setup'}</span>
-                <span className="sm:hidden">{(t('pricing.onetime') || 'One-Time').split(' ')[0]}</span>
+                <span className="hidden sm:inline">One-Time Setup</span>
+                <span className="sm:hidden">One-Time</span>
               </button>
               <button
                 onClick={() => setPlanType('monthly')}
@@ -204,8 +204,8 @@ const PricingPlans = () => {
                 }`}
               >
                 <Zap className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2" />
-                <span className="hidden sm:inline">{t('pricing.monthly') || 'Monthly Management'}</span>
-                <span className="sm:hidden">{(t('pricing.monthly') || 'Monthly').split(' ')[0]}</span>
+                <span className="hidden sm:inline">Monthly Management</span>
+                <span className="sm:hidden">Monthly</span>
               </button>
             </div>
           </div>
@@ -234,8 +234,8 @@ const PricingPlans = () => {
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
                     <div className="aqua-gradient text-white px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-bold flex items-center">
                       <Zap className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
-                      <span className="hidden sm:inline">{(t('pricing.mostPopular') || 'MOST POPULAR').toUpperCase()}</span>
-                      <span className="sm:hidden">{(t('pricing.mostPopular') || 'POPULAR').split(' ')[0].toUpperCase()}</span>
+                      <span className="hidden sm:inline">MOST POPULAR</span>
+                      <span className="sm:hidden">POPULAR</span>
                     </div>
                   </div>
                 )}
@@ -245,8 +245,8 @@ const PricingPlans = () => {
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
                     <div className="bg-gradient-to-r from-amber-400 to-yellow-500 text-black px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-bold flex items-center">
                       <Crown className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
-                      <span className="hidden sm:inline">{(t('pricing.eliteTier') || 'ELITE TIER').toUpperCase()}</span>
-                      <span className="sm:hidden">{(t('pricing.eliteTier') || 'ELITE').split(' ')[0].toUpperCase()}</span>
+                      <span className="hidden sm:inline">ELITE TIER</span>
+                      <span className="sm:hidden">ELITE</span>
                     </div>
                   </div>
                 )}
@@ -272,11 +272,11 @@ const PricingPlans = () => {
                       {formatPrice(plan.price)}
                     </div>
                     <div className="text-gray-400 text-xs sm:text-sm">
-                      {planType === 'onetime' ? (t('pricing.onetime.payment') || 'one-time payment') : (t('pricing.monthly.payment') || 'per month')}
+                      {planType === 'onetime' ? 'one-time payment' : 'per month'}
                     </div>
                     {planType === 'monthly' && (
                       <div className="text-purple-400 text-xs sm:text-sm font-semibold mt-1">
-                        {t('pricing.cancel') || 'Cancel anytime'}
+                        Cancel anytime
                       </div>
                     )}
                   </div>
@@ -318,26 +318,26 @@ const PricingPlans = () => {
           <div className="aqua-glass-dark rounded-3xl p-6 sm:p-8 max-w-4xl mx-auto edge-glow">
             <div className="flex items-center justify-center mb-4">
               <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-green-400 mr-2 sm:mr-3" />
-              <h3 className="text-xl sm:text-2xl font-bold text-white">{t('pricing.guarantee.title') || 'Success Guarantee'}</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-white">Success Guarantee</h3>
             </div>
             <p className="text-gray-300 mb-6 text-sm sm:text-base">
               {planType === 'onetime' 
-                ? (t('pricing.guarantee.onetime') || "30-day money-back guarantee on all setup packages. If you're not completely satisfied, we'll refund every penny.")
-                : (t('pricing.guarantee.monthly') || "Cancel anytime with 30 days notice. We're confident you'll see results within the first month.")
+                ? "30-day money-back guarantee on all setup packages. If you're not completely satisfied, we'll refund every penny."
+                : "Cancel anytime with 30 days notice. We're confident you'll see results within the first month."
               }
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 text-xs sm:text-sm text-gray-400">
               <div className="flex items-center">
                 <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-400 mr-2" />
-                {t('pricing.guarantee.noFees') || 'No hidden fees'}
+                No hidden fees
               </div>
               <div className="flex items-center">
                 <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-400 mr-2" />
-                {planType === 'onetime' ? (t('pricing.guarantee.lifetime') || 'Lifetime support') : (t('pricing.guarantee.cancel') || 'Cancel anytime')}
+                {planType === 'onetime' ? 'Lifetime support' : 'Cancel anytime'}
               </div>
               <div className="flex items-center">
                 <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-400 mr-2" />
-                {t('pricing.guarantee.support') || '24/7 support'}
+                24/7 support
               </div>
             </div>
           </div>

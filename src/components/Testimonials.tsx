@@ -88,21 +88,13 @@ const Testimonials = () => {
         <div className="text-center mt-12">
           <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              {t('testimonials.cta.title') || 'Ready to Join Our Success Stories?'}
+              Ready to Join Our Success Stories?
             </h3>
             <p className="text-gray-600 mb-6">
-              {t('testimonials.cta.desc') || 'Take the first step towards maximizing your earning potential with professional support.'}
+              Take the first step towards maximizing your earning potential with professional support.
             </p>
-            <button 
-              onClick={() => {
-                const element = document.getElementById('contact');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
-            >
-              {t('testimonials.cta.button') || 'Start Your Application'}
+            <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+              Start Your Application
             </button>
           </div>
         </div>
