@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Send, Phone, Mail, MapPin, Clock, ChevronDown, Globe, Users, Briefcase, MessageSquare, CreditCard, Settings } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { supabase } from '../../supabaseClient';
 
 const Contact = () => {
   const { t } = useLanguage();
