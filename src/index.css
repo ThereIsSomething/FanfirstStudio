@@ -367,6 +367,68 @@ html {
   backdrop-filter: blur(24px);
 }
 
+/* Form Input Fixes */
+input[type="radio"], 
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type="radio"]:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+input[type="radio"]:checked:before {
+  background: #a855f7;
+}
+
+input[type="checkbox"]:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+input[type="checkbox"]:checked:before {
+  content: '✓';
+  color: #a855f7;
+  font-size: 12px;
+  font-weight: bold;
+  width: auto;
+  height: auto;
+}
+
+/* Ensure clickable areas */
+.form-group {
+  position: relative;
+  z-index: 1;
+}
+
+/* Fix any potential overlay issues */
+.form-overlay-fix {
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 10;
+}
+
 /* Modern Button Styles */
 .btn-modern {
   position: relative;

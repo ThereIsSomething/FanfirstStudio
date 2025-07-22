@@ -141,6 +141,7 @@ const Contact = () => {
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    console.log('Input changed:', e.target.name, '=', e.target.value);
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -156,9 +157,14 @@ const Contact = () => {
   };
 
   const handlePlatformChange = (platform: string) => {
+    console.log('handlePlatformChange called for:', platform);
+    console.log('Current selected platforms:', formData.selectedPlatforms);
+    
     const updatedPlatforms = formData.selectedPlatforms.includes(platform)
       ? formData.selectedPlatforms.filter(p => p !== platform)
       : [...formData.selectedPlatforms, platform];
+    
+    console.log('Updated platforms:', updatedPlatforms);
     
     setFormData({
       ...formData,
@@ -377,24 +383,33 @@ const Contact = () => {
                     </label>
                     <div className="grid md:grid-cols-2 gap-3">
                       {serviceTypes.map((service, index) => {
-  const id = `service-${index}`;
-  return (
-    <div key={service.value} className="flex items-center space-x-2">
-      <input
-        type="radio"
-        id={id}
-        name="serviceType"
-        value={service.value}
-        checked={formData.serviceType === service.value}
-        onChange={handleInputChange}
-        className="w-4 h-4 text-purple-400"
-      />
-      <label htmlFor={id} className="text-sm text-gray-300 cursor-pointer">
-        {service.label}
-      </label>
-    </div>
-  );
-})}
+                        const id = `service-${service.value}-${index}`;
+                        return (
+                          <div key={service.value} className="flex items-center space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-200 cursor-pointer group">
+                            <div className="relative">
+                              <input
+                                type="radio"
+                                id={id}
+                                name="serviceType"
+                                value={service.value}
+                                checked={formData.serviceType === service.value}
+                                onChange={(e) => {
+                                  console.log('Service type selected:', e.target.value);
+                                  handleInputChange(e);
+                                }}
+                                className="w-4 h-4 text-purple-400 bg-transparent border-2 border-gray-500 focus:ring-purple-400 focus:ring-2 cursor-pointer"
+                                style={{ accentColor: '#a855f7' }}
+                              />
+                            </div>
+                            <div className="flex items-center space-x-2 flex-1">
+                              <service.icon className="h-4 w-4 text-purple-400 group-hover:text-purple-300 transition-colors duration-200" />
+                              <label htmlFor={id} className="text-sm text-gray-300 cursor-pointer group-hover:text-white transition-colors duration-200 flex-1">
+                                {service.label}
+                              </label>
+                            </div>
+                          </div>
+                        );
+                      })}
 
                     </div>
                   </div>
@@ -426,15 +441,27 @@ const Contact = () => {
                     </label>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                       {availablePlatforms.map((platform) => (
-                        <label key={platform} className="flex items-center space-x-2 cursor-pointer">
-                          <input
-                            type="checkbox"
-                            checked={formData.selectedPlatforms.includes(platform)}
-                            onChange={() => handlePlatformChange(platform)}
-                            className="w-4 h-4 text-purple-400 bg-transparent border-gray-500 rounded focus:ring-purple-400"
-                          />
-                          <span className="text-sm text-gray-300">{platform}</span>
-                        </label>
+                        <div key={platform} className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/5 transition-all duration-200 cursor-pointer group">
+                          <div className="relative">
+                            <input
+                              type="checkbox"
+                              id={`platform-${platform.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                              checked={formData.selectedPlatforms.includes(platform)}
+                              onChange={(e) => {
+                                console.log('Platform toggled:', platform, 'checked:', e.target.checked);
+                                handlePlatformChange(platform);
+                              }}
+                              className="w-4 h-4 text-purple-400 bg-transparent border-2 border-gray-500 rounded focus:ring-purple-400 focus:ring-2 cursor-pointer"
+                              style={{ accentColor: '#a855f7' }}
+                            />
+                          </div>
+                          <label 
+                            htmlFor={`platform-${platform.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                            className="text-sm text-gray-300 cursor-pointer group-hover:text-white transition-colors duration-200 flex-1"
+                          >
+                            {platform}
+                          </label>
+                        </div>
                       ))}
                     </div>
                   </div>
