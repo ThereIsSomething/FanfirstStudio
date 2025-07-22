@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Send, Phone, Mail, MapPin, Clock, ChevronDown, Globe, Users, Briefcase, MessageSquare, CreditCard, Settings } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { supabase } from '../../supabaseClient';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -100,6 +101,24 @@ const Contact = () => {
         console.error('Supabase Error:', error);
         throw new Error('Supabase submission failed');
       }
+
+      if (error) {
+        console.error('Supabase Error:', error);
+        throw new Error('Supabase submission failed');
+      }
+
+      // 💌 Send confirmation email
+      await emailjs.send(
+            'service_6zm2dfr',           // Replace with your actual service ID
+              'template_0102kt2',    // Replace with your template ID
+      {
+          to_name: formData.name,
+          to_email: formData.email,
+    from_name: 'Fanfirst Studio Team',
+  },
+  'k95xlGHauzgaayEvL'
+);
+
 
 
       // Simulate API call for now
