@@ -101,22 +101,14 @@ const Contact = () => {
         console.error('Supabase Error:', error);
         throw new Error('Supabase submission failed');
       }
-
-      if (error) {
-        console.error('Supabase Error:', error);
-        throw new Error('Supabase submission failed');
-      }
-
-      // 💌 Send confirmation email
       await emailjs.send(
-            'service_6zm2dfr',           // Replace with your actual service ID
-              'template_0102kt2',    // Replace with your template ID
+        'service_6zm2dfr',
+        'template_0102kt2',
       {
-          to_name: formData.name,
-          to_email: formData.email,
-    from_name: 'Fanfirst Studio Team',
-  },
-  'k95xlGHauzgaayEvL'
+        name: formData.name,
+        email: formData.email
+      },
+      'k95xlGHauzgaayEvL'
 );
 
 
