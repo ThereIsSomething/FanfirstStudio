@@ -19,10 +19,10 @@ const PlatformIntegration = () => {
     <div className="mt-20 animate-slide-up-fade delay-1000">
       <div className="text-center mb-12">
         <h3 className="font-display text-3xl font-black text-white mb-4">
-          Supported <span className="gradient-text">Platforms</span>
+         {t('services.platforms.title') || 'Supported'} <span className="gradient-text">{t('services.platforms.highlight') || 'Platforms'}</span>
         </h3>
         <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-          We manage and optimize your presence across all major creator platforms
+         {t('services.platforms.desc') || 'We manage and optimize your presence across all major creator platforms'}
         </p>
       </div>
       
@@ -113,16 +113,16 @@ const Services = () => {
         <div className="text-center mb-20 animate-slide-up-fade">
           <div className="inline-flex items-center glass px-6 py-2 rounded-full mb-6">
             <Sparkles className="h-4 w-4 text-purple-400 mr-2" />
-            <span className="text-sm font-semibold gradient-text tracking-wider">{t('services.badge').toUpperCase()}</span>
+            <span className="text-sm font-semibold gradient-text tracking-wider">{(t('services.badge') || 'Complete Solution Suite').toUpperCase()}</span>
           </div>
           
           <h2 className="font-display text-responsive-xl font-black text-white mb-6 tracking-tight">
-            {t('services.title')}
-            <span className="block gradient-text"> {t('services.titleHighlight')}</span>
+            {t('services.title') || 'Complete Creator'}
+            <span className="block gradient-text"> {t('services.titleHighlight') || 'Management Suite'}</span>
           </h2>
           
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-light">
-            {t('services.subtitle')}
+            {t('services.subtitle') || 'Professional services designed to maximize your success and streamline your business.'}
           </p>
         </div>
 

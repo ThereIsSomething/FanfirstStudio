@@ -91,10 +91,10 @@ const Footer = () => {
         <div className="py-16 border-b border-gray-600/30">
           <div className="text-center mb-8">
             <h3 className="text-3xl font-bold mb-4 text-white drop-shadow-lg">
-              Stay Updated with Model Insights
+              {t('footer.newsletter.title') || 'Stay Updated with Model Insights'}
             </h3>
             <p className="text-lg max-w-2xl mx-auto text-gray-200">
-              Get exclusive tips, English/Chinese Chat Templates, Content Startegy, industry insights, and success strategies delivered to your inbox.
+              {t('footer.newsletter.desc') || 'Get exclusive tips, English/Chinese Chat Templates, Content Strategy, industry insights, and success strategies delivered to your inbox.'}
             </p>
           </div>
           
@@ -102,11 +102,11 @@ const Footer = () => {
             <div className="flex gap-3">
               <input
                 type="email"
-                placeholder="Enter your email address"
+                placeholder={t('footer.newsletter.placeholder') || 'Enter your email address'}
                 className="flex-1 px-4 py-3 rounded-xl border transition-all duration-300 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-white/10 border-gray-500/50 text-white placeholder-gray-300 backdrop-blur-sm hover:bg-white/15"
               />
               <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-xl hover:shadow-purple-500/25 transform hover:-translate-y-1 hover:scale-105 transition-all duration-300">
-                Subscribe
+                {t('footer.newsletter.subscribe') || 'Subscribe'}
               </button>
             </div>
           </div>
@@ -132,8 +132,7 @@ const Footer = () => {
               </div>
               
               <p className="mb-6 leading-relaxed text-gray-200 text-base">
-                The premier content creator agency specializing in premium platform management, 
-                revenue optimization, and creator success. Transforming creators into industry leaders.
+                {t('footer.company.desc') || 'The premier content creator agency specializing in premium platform management, revenue optimization, and creator success. Transforming creators into industry leaders.'}
               </p>
               
               {/* Contact Info */}
@@ -235,10 +234,10 @@ const Footer = () => {
             {/* Copyright */}
             <div className="text-center lg:text-right">
               <div className="text-sm mb-2 text-gray-200 font-medium">
-                © 2025 FanFirst Studio. All rights reserved.
+                {t('footer.copyright') || '© 2025 FanFirst Studio. All rights reserved.'}
               </div>
               <div className="text-xs text-gray-300">
-                Professional content creator management & optimization
+                {t('footer.tagline') || 'Professional content creator management & optimization'}
               </div>
             </div>
           </div>
