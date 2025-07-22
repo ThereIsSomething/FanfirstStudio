@@ -515,7 +515,7 @@ const Contact = () => {
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
                       >
-                        <option value="" className="bg-slate-800">Select content type</option>
+                        <option value="" className="bg-slate-800">Select content type or Intensity</option>
                         <option value="nsfw-solo" className="bg-slate-800">NSFW(solo)</option>
                         <option value="nsfw-multi" className="bg-slate-800">NSFW(multi)</option>
                         <option value="povsex" className="bg-slate-800">POV SEX</option>
