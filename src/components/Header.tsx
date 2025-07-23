@@ -41,7 +41,7 @@ const Header = () => {
             </div>
             <div className="flex flex-col">
               <span className="font-display text-lg sm:text-2xl font-bold text-white tracking-tight">
-                Ja
+                FanFirst
               </span>
               <span className="font-display text-xs sm:text-sm font-medium gradient-text tracking-wider">
                 STUDIO
