@@ -565,7 +565,7 @@ const Contact = () => {
                         <option value="" className="bg-slate-800">Select content type or Intensity</option>
                         <option value="nsfw-solo" className="bg-slate-800">NSFW(solo)</option>
                         <option value="nsfw-multi" className="bg-slate-800">NSFW(multi)</option>
-                        <option value="povsex" className="bg-slate-800">POV SEX</option>
+                        <option value="povsex" className="bg-slate-800">POV</option>
                         <option value="tease" className="bg-slate-800">Tease</option>
                         <option value="fetish" className="bg-slate-800">Fetish</option>
                         <option value="asmr" className="bg-slate-800">ASMR</option>
