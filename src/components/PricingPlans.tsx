@@ -215,16 +215,17 @@ const PricingPlans = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
           {currentPlans.map((plan, index) => (
             <div
-              key={`${planType}-${plan.name}`}
-              className={`relative group animate-slide-up-fade ${
-              plan.premium 
-                ? 'edge-glow-premium' 
-                : plan.popular 
-                ? 'edge-glow' 
-                : ''
-              } ${plan.popular ? 'md:col-span-2 lg:col-span-1' : ''}`}
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
+  key={`${planType}-${plan.name}`}
+  className={`relative group animate-slide-up-fade overflow-visible ${
+    plan.premium
+      ? 'edge-glow-premium'
+      : plan.popular
+        ? 'edge-glow ring-2 ring-purple-500/50 scale-105 z-10'
+        : ''
+  } ${plan.popular ? 'md:col-span-2 lg:col-span-1' : ''}`}
+  style={{ animationDelay: `${index * 200}ms` }}
+>
+
 
               <div className={`aqua-glass-dark rounded-3xl p-6 sm:p-8 min-h-[600px] sm:min-h-[720px] hover:scale-105 transition-all duration-500 relative overflow-hidden flex flex-col ${
                 plan.popular ? 'ring-2 ring-purple-500/50 transform scale-105' : ''
