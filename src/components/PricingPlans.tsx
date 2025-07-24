@@ -65,7 +65,7 @@ const PricingPlans = () => {
       ],
       popular: false,
       premium: true,
-      buttonText: "Build Empire"
+      buttonText: "Be an Elite+"
     }
   ];
 
