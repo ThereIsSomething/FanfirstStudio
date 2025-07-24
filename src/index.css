@@ -554,4 +554,20 @@ input[type="checkbox"]:checked:before {
   }
 }
 
- 
+ .edge-glow-purple::before,
+.edge-glow-yellow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem; /* matches rounded-3xl */
+  pointer-events: none;
+  z-index: -1;
+}
+
+.edge-glow-purple::before {
+  box-shadow: 0 0 25px 2px rgba(168, 85, 247, 0.5); /* purple glow */
+}
+
+.edge-glow-yellow::before {
+  box-shadow: 0 0 25px 2px rgba(250, 204, 21, 0.5); /* yellow glow */
+}
