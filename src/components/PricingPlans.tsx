@@ -227,9 +227,8 @@ const PricingPlans = () => {
 >
 
 
-              <div className={`aqua-glass-dark rounded-3xl p-6 sm:p-8 min-h-[600px] sm:min-h-[720px] hover:scale-105 transition-all duration-500 relative overflow-hidden flex flex-col ${
-                plan.popular ? 'ring-2 ring-purple-500/50 transform scale-105' : ''
-              }`}>
+              <div className="aqua-glass-dark rounded-3xl p-6 sm:p-8 h-full lg:min-h-[720px] hover:ring-4 hover:ring-purple-400/30 transition-all duration-500 relative overflow-hidden flex flex-col">
+
                 
                 {/* Popular Badge */}
                 {plan.popular && (
