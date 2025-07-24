@@ -228,7 +228,8 @@ const PricingPlans = () => {
 
 
 
-              <div className="aqua-glass-dark rounded-3xl p-6 sm:p-8 h-full lg:min-h-[720px] hover:ring-4 hover:ring-purple-400/30 transition-all duration-500 relative overflow-hidden flex flex-col">
+              <div className="aqua-glass-dark relative rounded-3xl p-6 sm:p-8 flex flex-col h-full lg:min-h-[720px] overflow-visible">
+
 
                 
                 {/* Popular Badge */}
