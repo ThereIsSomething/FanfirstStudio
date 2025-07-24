@@ -216,13 +216,14 @@ const PricingPlans = () => {
           {currentPlans.map((plan, index) => (
             <div
   key={`${planType}-${plan.name}`}
-  className={`relative group animate-slide-up-fade transform transition-all duration-500 hover:scale-105 ${
-    plan.popular
-      ? 'ring-2 ring-purple-500/50 rounded-3xl shadow-purple-500/30 shadow-xl animate-popular-glow z-10'
-      : plan.premium
-        ? 'ring-2 ring-yellow-400/50 rounded-3xl shadow-yellow-400/30 shadow-xl z-10'
-        : ''
-  } ${plan.popular ? 'md:col-span-2 lg:col-span-1' : ''}`}
+  className={`relative group animate-slide-up-fade transform transition-all duration-500 hover:scale-105 rounded-3xl ${
+  plan.popular
+    ? 'edge-glow-purple'
+    : plan.premium
+      ? 'edge-glow-yellow'
+      : ''
+} ${plan.popular ? 'md:col-span-2 lg:col-span-1' : ''}`}
+
   style={{ animationDelay: `${index * 200}ms` }} 
 >
 
