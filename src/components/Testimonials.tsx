@@ -10,7 +10,7 @@ const testimonials = [
     earnings: '$45K/month',
     verified: true,
     quote: 'FanFirst helped me scale to six figures in just 4 months.',
-    platforms: ['OnlyFans', 'Fansly'],
+    platforms: ['OnlyFans', 'Fansly'], 
     services: ['Chat Management', 'Growth Strategy'],
   },
   {
@@ -35,7 +35,7 @@ const testimonials = [
   },
 ];
 
-const testimonials = () => {
+const Testimonials = () => {
   const { t } = useLanguage();
 
   return (
