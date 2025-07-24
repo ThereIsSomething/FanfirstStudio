@@ -554,15 +554,4 @@ input[type="checkbox"]:checked:before {
   }
 }
 
-@keyframes glowPulse {
-  0%, 100% {
-    box-shadow: 0 0 0px rgba(168, 85, 247, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(168, 85, 247, 0.7);
-  }
-}
-
-.animate-popular-glow {
-  animation: glowPulse 3s ease-in-out infinite;
-}
+ 
