@@ -95,7 +95,7 @@ const Header = () => {
             </button>
           </div>
 
-          <div className="flex items-center space-x-3 lg:hidden">
+          <div className="flex items-center space-x-3">
             <div className="md:hidden">
               <LanguageSelector />
             </div>
