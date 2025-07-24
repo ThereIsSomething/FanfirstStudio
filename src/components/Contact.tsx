@@ -271,7 +271,7 @@ const Contact = () => {
                   {submitStatus.message}
                 </div>
               )}
-              
+              <div className="min-h-screen flex items-center justify-center bg-gradient-to-b ... px-4 sm:px-6">
               <form onSubmit={handleSubmit} className="w-full max-w-md space-y-6 bg-black/30 p-6 rounded-2xl shadow-lg">
                 {/* Basic Information */}
                 <div className="space-y-4">
