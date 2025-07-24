@@ -65,7 +65,7 @@ const PricingPlans = () => {
       ],
       popular: false,
       premium: true,
-      buttonText: "Be an Elite+"
+      buttonText: "Be an Creator+"
     }
   ];
 
@@ -153,7 +153,7 @@ const PricingPlans = () => {
   };
 
   return (
-    <section id="pricing" className="py-24 bg-gradient-to-br from-slate-950 via-purple-950/30 to-slate-950 relative overflow-hidden">
+    <section id="pricing" className="py-24 bg-gradient-to-br from-slate-950 via-purple-950/30 to-slate-950 relative overflow-visible">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-96 h-96 aqua-gradient opacity-20 liquid-morph blur-3xl"></div>
