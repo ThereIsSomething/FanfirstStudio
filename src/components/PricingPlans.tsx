@@ -111,7 +111,7 @@ const PricingPlans = () => {
       buttonText: "Accelerate Success"
     },
     {
-      name: "Elite Domination",
+      name: "Creator Executive",
       description: "Premium management for top-tier creators",
       price: 199,
       icon: Crown,
