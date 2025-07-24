@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Star, Mail, Phone, MapPin, 
   Facebook, Twitter, Instagram, Linkedin, Youtube,
@@ -7,43 +7,45 @@ import {
   Building, Heart, Globe, ChevronRight
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import Modal from './Modal';
 
 const Footer = () => {
   const { t } = useLanguage();
+  const [activeModal, setActiveModal] = useState<string | null>(null);
 
   const footerSections = [
     {
       title: 'Company',
       links: [
-        { name: 'About Us', href: '/about', icon: Building },
-        { name: 'Our Story', href: '/story', icon: Heart },
+        { name: 'About Us', href: '/about', icon: Building, type: 'modal' },
+        { name: 'Our Story', href: '/story', icon: Heart, type: 'modal' },
       ]
     },
     {
       title: 'Products & Services',
       links: [
-        { name: 'Features', href: '/features', icon: Star },
+        { name: 'Features', href: '/features', icon: Star, type: 'modal' },
         { name: 'Pricing', href: '#pricing', icon: Award },
         { name: 'Success Stories', href: '#testimonials', icon: TrendingUp },
-        { name: 'Customer Testimonials', href: '/testimonials', icon: MessageCircle },
+        { name: 'Customer Testimonials', href: '/testimonials', icon: MessageCircle, type: 'modal' },
       ]
     },
     {
       title: 'Support & Resources',
       links: [
-        { name: 'Help Center', href: '/help', icon: HelpCircle },
-        { name: 'Documentation', href: '/docs', icon: BookOpen },
+        { name: 'Help Center', href: '/help', icon: HelpCircle, type: 'modal' },
+        { name: 'Documentation', href: '/docs', icon: BookOpen, type: 'modal' },
         { name: 'Contact Us', href: '#contact', icon: Mail },
       ]
     },
     {
       title: 'Legal & Compliance',
       links: [
-        { name: 'Privacy Policy', href: '/privacy', icon: Shield },
-        { name: 'Terms of Service', href: '/terms', icon: FileText },
-        { name: 'Cookie Policy', href: '/cookies', icon: Shield },
-        { name: 'Data Protection', href: '/data-protection', icon: Shield },
-        { name: 'Refund Policy', href: '/refunds', icon: Award }
+        { name: 'Privacy Policy', href: '/privacy', icon: Shield, type: 'modal' },
+        { name: 'Terms of Service', href: '/terms', icon: FileText, type: 'modal' },
+        { name: 'Cookie Policy', href: '/cookies', icon: Shield, type: 'modal' },
+        { name: 'Data Protection', href: '/data-protection', icon: Shield, type: 'modal' },
+        { name: 'Refund Policy', href: '/refunds', icon: Award, type: 'modal' }
       ]
     }
   ];
@@ -71,7 +73,163 @@ const Footer = () => {
     }
   };
 
+  const handleLinkClick = (link: any) => {
+    if (link.type === 'modal') {
+      setActiveModal(link.href);
+    } else if (link.href.startsWith('#')) {
+      scrollToSection(link.href);
+    } else {
+      // External links or other navigation
+      window.open(link.href, '_blank');
+    }
+  };
+
+  const getModalContent = (modalId: string) => {
+    switch (modalId) {
+      case '/privacy':
+        return (
+          <div className="prose prose-invert max-w-none">
+            <h3 className="text-xl font-bold text-white mb-4">Privacy Policy</h3>
+            <div className="space-y-4 text-gray-300">
+              <p>Last updated: January 2025</p>
+              <p>At FanFirst Studio, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your information when you use our services.</p>
+              
+              <h4 className="text-lg font-semibold text-white mt-6 mb-3">Information We Collect</h4>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Personal information you provide (name, email, phone number)</li>
+                <li>Platform account information and handles</li>
+                <li>Communication preferences and language settings</li>
+                <li>Service usage data and analytics</li>
+              </ul>
+              
+              <h4 className="text-lg font-semibold text-white mt-6 mb-3">How We Use Your Information</h4>
+              <ul className="list-disc list-inside space-y-2">
+                <li>To provide and improve our management services</li>
+                <li>To communicate with you about your account and services</li>
+                <li>To optimize your content and revenue strategies</li>
+                <li>To ensure compliance with platform policies</li>
+              </ul>
+              
+              <h4 className="text-lg font-semibold text-white mt-6 mb-3">Data Protection</h4>
+              <p>We implement industry-standard security measures to protect your data, including encryption, secure servers, and limited access protocols.</p>
+              
+              <h4 className="text-lg font-semibold text-white mt-6 mb-3">Contact Us</h4>
+              <p>If you have questions about this Privacy Policy, contact us at team@fanfirst.studio</p>
+            </div>
+          </div>
+        );
+      
+      case '/terms':
+        return (
+          <div className="prose prose-invert max-w-none">
+            <h3 className="text-xl font-bold text-white mb-4">Terms of Service</h3>
+            <div className="space-y-4 text-gray-300">
+              <p>Last updated: January 2025</p>
+              <p>Welcome to FanFirst Studio. By using our services, you agree to these terms and conditions.</p>
+              
+              <h4 className="text-lg font-semibold text-white mt-6 mb-3">Service Agreement</h4>
+              <ul className="list-disc list-inside space-y-2">
+                <li>We provide professional content creator management services</li>
+                <li>Services include account management, content strategy, and revenue optimization</li>
+                <li>You retain ownership of your content and accounts</li>
+                <li>We act as your authorized representative for specified platforms</li>
+              </ul>
+              
+              <h4 className="text-lg font-semibold text-white mt-6 mb-3">Client Responsibilities</h4>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Provide accurate information and maintain account access</li>
+                <li>Comply with all platform terms of service</li>
+                <li>Create content that meets platform guidelines</li>
+                <li>Communicate promptly regarding account issues</li>
+              </ul>
+              
+              <h4 className="text-lg font-semibold text-white mt-6 mb-3">Payment Terms</h4>
+              <p>Payment terms vary by service plan. One-time setup fees are due upon service commencement. Monthly management fees are billed in advance.</p>
+              
+              <h4 className="text-lg font-semibold text-white mt-6 mb-3">Termination</h4>
+              <p>Either party may terminate services with 30 days written notice. Refund policies apply as outlined in our Refund Policy.</p>
+            </div>
+          </div>
+        );
+      
+      case '/about':
+        return (
+          <div className="prose prose-invert max-w-none">
+            <h3 className="text-xl font-bold text-white mb-4">About FanFirst Studio</h3>
+            <div className="space-y-4 text-gray-300">
+              <p>FanFirst Studio is the premier content creator management agency specializing in the Asian market and premium platform optimization.</p>
+              
+              <h4 className="text-lg font-semibold text-white mt-6 mb-3">Our Mission</h4>
+              <p>To empower content creators with professional management services that maximize their earning potential while maintaining their privacy and creative freedom.</p>
+              
+              <h4 className="text-lg font-semibold text-white mt-6 mb-3">Our Expertise</h4>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Multi-platform account management and optimization</li>
+                <li>Professional chat management and fan engagement</li>
+                <li>Revenue optimization and pricing strategies</li>
+                <li>Content strategy and marketing campaigns</li>
+                <li>Legal protection and privacy services</li>
+              </ul>
+              
+              <h4 className="text-lg font-semibold text-white mt-6 mb-3">Why Choose Us</h4>
+              <p>With over 500 successful creators and $50M+ in revenue generated, we have the proven track record and expertise to transform your content creation business into a thriving enterprise.</p>
+              
+              <h4 className="text-lg font-semibold text-white mt-6 mb-3">Global Reach</h4>
+              <p>Based in Los Angeles with multilingual support in English, Chinese, and Japanese, we serve creators worldwide with 24/7 professional support.</p>
+            </div>
+          </div>
+        );
+      
+      case '/help':
+        return (
+          <div className="prose prose-invert max-w-none">
+            <h3 className="text-xl font-bold text-white mb-4">Help Center</h3>
+            <div className="space-y-4 text-gray-300">
+              <h4 className="text-lg font-semibold text-white mt-6 mb-3">Frequently Asked Questions</h4>
+              
+              <div className="space-y-6">
+                <div>
+                  <h5 className="font-semibold text-white mb-2">How do I get started?</h5>
+                  <p>Complete our application form and we'll schedule a consultation call to discuss your goals and create a custom strategy.</p>
+                </div>
+                
+                <div>
+                  <h5 className="font-semibold text-white mb-2">What platforms do you support?</h5>
+                  <p>We manage accounts on OnlyFans, Fansly, FansOne, ManyVids, and other premium content platforms.</p>
+                </div>
+                
+                <div>
+                  <h5 className="font-semibold text-white mb-2">How much can I expect to earn?</h5>
+                  <p>Our creators see an average 300% increase in revenue within 3 months. Individual results vary based on content quality, engagement, and market factors.</p>
+                </div>
+                
+                <div>
+                  <h5 className="font-semibold text-white mb-2">Is my privacy protected?</h5>
+                  <p>Absolutely. We implement advanced security measures and provide legal protection services to safeguard your privacy and personal information.</p>
+                </div>
+                
+                <div>
+                  <h5 className="font-semibold text-white mb-2">What languages do you support?</h5>
+                  <p>We provide support in English, Chinese (Mandarin), and Japanese with native-speaking account managers.</p>
+                </div>
+              </div>
+              
+              <h4 className="text-lg font-semibold text-white mt-8 mb-3">Contact Support</h4>
+              <p>For additional questions, email us at team@fanfirst.studio or use our contact form. We respond within 24 hours.</p>
+            </div>
+          </div>
+        );
+      
+      default:
+        return (
+          <div className="text-gray-300">
+            <p>Content coming soon. Please check back later or contact us for more information.</p>
+          </div>
+        );
+    }
+  };
   return (
+    <>
     <footer className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
       {/* Background Effects */}
       <div className="absolute inset-0">
@@ -184,15 +342,12 @@ const Footer = () => {
                 <ul className="space-y-3">
                   {section.links.map((link) => (
                     <li key={link.name}>
-                      <a
-                        href={link.href}
+                      <button
                         onClick={(e) => {
-                          if (link.href.startsWith('#')) {
-                            e.preventDefault();
-                            scrollToSection(link.href);
-                          }
+                          e.preventDefault();
+                          handleLinkClick(link);
                         }}
-                        className="flex items-center space-x-2 transition-all duration-300 group text-gray-200 hover:text-white hover:translate-x-1"
+                        className="flex items-center space-x-2 transition-all duration-300 group text-gray-200 hover:text-white hover:translate-x-1 w-full text-left"
                       >
                         <div className="bg-white/10 p-1.5 rounded-lg group-hover:bg-purple-600/30 transition-all duration-300">
                           <link.icon className="h-3 w-3 text-gray-400 group-hover:text-purple-400 transition-colors duration-300" />
@@ -201,7 +356,7 @@ const Footer = () => {
                           {link.name}
                         </span>
                         <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 group-hover:text-purple-400 transition-all duration-300" />
-                      </a>
+                      </button>
                     </li>
                   ))}
                 </ul>
@@ -239,6 +394,16 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+    
+    {/* Modal System */}
+    <Modal
+      isOpen={activeModal !== null}
+      onClose={() => setActiveModal(null)}
+      title={activeModal ? footerSections.flatMap(s => s.links).find(l => l.href === activeModal)?.name || 'Information' : ''}
+    >
+      {activeModal && getModalContent(activeModal)}
+    </Modal>
+    </>
   );
 };
 
