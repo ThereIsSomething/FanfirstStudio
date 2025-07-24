@@ -272,7 +272,7 @@ const Contact = () => {
                 </div>
               )}
               
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="w-full max-w-md space-y-6 bg-black/30 p-6 rounded-2xl shadow-lg">
                 {/* Basic Information */}
                 <div className="space-y-4">
                   <h4 className="text-lg font-semibold text-white border-b border-white/20 pb-2">
