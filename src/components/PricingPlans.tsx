@@ -10,7 +10,7 @@ const PricingPlans = () => {
     {
       name: "Starter Setup",
       description: "Perfect for new creators ready to launch professionally",
-      price: 499,
+      price: 99,
       icon: Sparkles,
       features: [
         "Complete account setup & optimization",
@@ -29,7 +29,7 @@ const PricingPlans = () => {
     {
       name: "Professional Launch",
       description: "Comprehensive setup for serious creators",
-      price: 999,
+      price: 199,
       icon: TrendingUp,
       features: [
         "Everything in Starter Setup",
@@ -49,7 +49,7 @@ const PricingPlans = () => {
     {
       name: "Elite Empire Builder",
       description: "The ultimate creator transformation package",
-      price: 2499,
+      price: 499,
       icon: Crown,
       features: [
         "Everything in Professional Launch",
@@ -73,7 +73,7 @@ const PricingPlans = () => {
     {
       name: "Growth Partner",
       description: "Ongoing support for consistent growth",
-      price: 297,
+      price: 49,
       icon: Sparkles,
       features: [
         "Monthly strategy sessions",
@@ -92,7 +92,7 @@ const PricingPlans = () => {
     {
       name: "Success Accelerator",
       description: "Full-service management for serious creators",
-      price: 597,
+      price: 99,
       icon: TrendingUp,
       features: [
         "Everything in Growth Partner",
@@ -113,7 +113,7 @@ const PricingPlans = () => {
     {
       name: "Elite Domination",
       description: "Premium management for top-tier creators",
-      price: 1197,
+      price: 199,
       icon: Crown,
       features: [
         "Everything in Success Accelerator",
