@@ -16,6 +16,8 @@ const Contact = () => {
     region: '',
     existingPlatformAccounts: '',
     serviceType: '',
+    planType: '',
+    selectedPlan: '',
     experience: '',
     currentEarnings: '',
     goals: '',
@@ -60,6 +62,35 @@ const Contact = () => {
     { value: 'other', label: 'Other Services', icon: Globe }
   ];
 
+  const planTypes = [
+    { value: 'onetime', label: 'One-Time Setup' },
+    { value: 'monthly', label: 'Monthly Management' }
+  ];
+
+  const onetimePlans = [
+    { value: 'starter-setup', label: 'Starter Setup - $499' },
+    { value: 'professional-launch', label: 'Professional Launch - $999' },
+    { value: 'elite-empire-builder', label: 'Elite Empire Builder - $2,499' }
+  ];
+
+  const monthlyPlans = [
+    { value: 'growth-partner', label: 'Growth Partner - $297/month' },
+    { value: 'success-accelerator', label: 'Success Accelerator - $597/month' },
+    { value: 'elite-domination', label: 'Elite Domination - $1,197/month' }
+  ];
+
+  const getAvailablePlans = () => {
+    return formData.planType === 'onetime' ? onetimePlans : monthlyPlans;
+  };
+
+  const handlePlanTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      planType: e.target.value,
+      selectedPlan: '' // Reset selected plan when plan type changes
+    });
+  };
+
   const availablePlatforms = [
     'OnlyFans', 'Fansly', 'FansOne', 'ManyVids', 'Swame', 'Fanvue', 
     'SpankChain', 'FanCentro', 'StripChat', 'SellyFans', 'FansMine', 
@@ -90,6 +121,8 @@ const Contact = () => {
         audience_size: formData.audience,
         selected_platforms: formData.selectedPlatforms,
         message: formData.message,
+        plan_type: formData.planType,
+        selected_plan: formData.selectedPlan,
       };
 
       // TODO: Replace with actual Supabase integration
@@ -137,6 +170,8 @@ const Contact = () => {
           region: '',
           existingPlatformAccounts: '',
           serviceType: '',
+          planType: '',
+          selectedPlan: '',
           experience: '',
           currentEarnings: '',
           goals: '',
@@ -428,6 +463,56 @@ const Contact = () => {
                         );
                       })}
 
+                    </div>
+                  </div>
+                </div>
+
+                {/* Plan Preference */}
+                <div className="space-y-4">
+                  <h4 className="text-lg font-semibold text-white border-b border-white/20 pb-2">
+                    Plan Preference
+                  </h4>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        Plan Type
+                      </label>
+                      <select
+                        name="planType"
+                        value={formData.planType}
+                        onChange={handlePlanTypeChange}
+                        className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5"
+                      >
+                        <option value="" className="bg-slate-800">Select plan type</option>
+                        {planTypes.map((type) => (
+                          <option key={type.value} value={type.value} className="bg-slate-800">
+                            {type.label}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        Preferred Plan
+                      </label>
+                      <select
+                        name="selectedPlan"
+                        value={formData.selectedPlan}
+                        onChange={handleInputChange}
+                        disabled={!formData.planType}
+                        className="w-full px-4 py-3 aqua-glass text-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        <option value="" className="bg-slate-800">
+                          {formData.planType ? 'Select your preferred plan' : 'Select plan type first'}
+                        </option>
+                        {formData.planType && getAvailablePlans().map((plan) => (
+                          <option key={plan.value} value={plan.value} className="bg-slate-800">
+                            {plan.label}
+                          </option>
+                        ))}
+                      </select>
                     </div>
                   </div>
                 </div>
