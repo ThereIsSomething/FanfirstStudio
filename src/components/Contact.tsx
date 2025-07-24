@@ -253,7 +253,7 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
-            <div className="aqua-glass-dark rounded-3xl p-8 edge-glow">
+            <div className="aqua-glass-dark rounded-3xl p-6 sm:p-8 edge-glow">
               <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
                 <div className="aqua-gradient p-2 rounded-lg mr-3">
                   <Send className="h-5 w-5 text-white" />
