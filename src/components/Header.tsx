@@ -96,9 +96,7 @@ const Header = () => {
           </div>
 
           <div className="flex items-center space-x-3">
-            <div className="md:hidden">
               <LanguageSelector />
-            </div>
             <button 
             className="lg:hidden text-gray-300 hover:text-white transition-colors duration-300 p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
