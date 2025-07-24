@@ -46,7 +46,7 @@ const Testimonials = () => {
 
       {/* Mobile Carousel */}
       <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth md:hidden pb-4">
-        {testimonials.map((t, i) => (
+        {Testimonials.map((t, i) => (
           <div
             key={i}
             className="min-w-[85%] bg-neutral-900 rounded-2xl p-6 snap-center shrink-0 hover:scale-[1.02] transition-transform shadow-xl"
