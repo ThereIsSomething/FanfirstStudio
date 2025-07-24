@@ -1,3 +1,5 @@
+what do you think of pricing? 
+
 import React, { useState } from 'react';
 import { Check, Crown, Zap, Star, Sparkles, Shield, TrendingUp, DollarSign } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -10,7 +12,7 @@ const PricingPlans = () => {
     {
       name: "Starter Setup",
       description: "Perfect for new creators ready to launch professionally",
-      price: 499,
+      price: 99,
       icon: Sparkles,
       features: [
         "Complete account setup & optimization",
@@ -29,7 +31,7 @@ const PricingPlans = () => {
     {
       name: "Professional Launch",
       description: "Comprehensive setup for serious creators",
-      price: 999,
+      price: 199,
       icon: TrendingUp,
       features: [
         "Everything in Starter Setup",
@@ -49,7 +51,7 @@ const PricingPlans = () => {
     {
       name: "Elite Empire Builder",
       description: "The ultimate creator transformation package",
-      price: 2499,
+      price: 499,
       icon: Crown,
       features: [
         "Everything in Professional Launch",
@@ -73,7 +75,7 @@ const PricingPlans = () => {
     {
       name: "Growth Partner",
       description: "Ongoing support for consistent growth",
-      price: 297,
+      price: 49,
       icon: Sparkles,
       features: [
         "Monthly strategy sessions",
@@ -92,7 +94,7 @@ const PricingPlans = () => {
     {
       name: "Success Accelerator",
       description: "Full-service management for serious creators",
-      price: 597,
+      price: 99,
       icon: TrendingUp,
       features: [
         "Everything in Growth Partner",
@@ -113,7 +115,7 @@ const PricingPlans = () => {
     {
       name: "Elite Domination",
       description: "Premium management for top-tier creators",
-      price: 1197,
+      price: 199,
       icon: Crown,
       features: [
         "Everything in Success Accelerator",
@@ -218,14 +220,13 @@ const PricingPlans = () => {
   key={`${planType}-${plan.name}`}
   className={`relative group animate-slide-up-fade transform transition-all duration-500 hover:scale-105 ${
     plan.popular
-      ? 'ring-2 ring-purple-500/50 rounded-3xl shadow-purple-500/30 shadow-lg z-10'
+      ? 'ring-2 ring-purple-500/50 z-10'
       : plan.premium
-        ? 'ring-2 ring-yellow-400/50 rounded-3xl shadow-yellow-400/30 shadow-lg z-10'
+        ? 'ring-2 ring-yellow-400/50 z-10'
         : ''
   } ${plan.popular ? 'md:col-span-2 lg:col-span-1' : ''}`}
-  style={{ animationDelay: `${index * 200}ms` }} 
+  style={{ animationDelay: `${index * 200}ms` }}
 >
-
 
 
 
