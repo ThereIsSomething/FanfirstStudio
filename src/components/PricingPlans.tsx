@@ -47,7 +47,7 @@ const PricingPlans = () => {
       buttonText: "Launch Professional"
     },
     {
-      name: "Elite Empire Builder",
+      name: "Elite+",
       description: "The ultimate creator transformation package",
       price: 499,
       icon: Crown,
