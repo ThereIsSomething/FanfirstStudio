@@ -96,7 +96,10 @@ const Benefits = () => {
                 <div className="bg-green-50 p-4 rounded-lg border border-green-200">
                   <div className="text-center">
                     <div className="text-3xl font-bold text-green-600 mb-1">30 Days</div>
-                    <div className="text-sm text-green-700">Money-back guarantee if not satisfied. <break>T&C Apply</break></div>
+                    <div className="text-sm text-green-700">
+                        Money-back guarantee if not satisfied. <br />T&C Apply
+                    </div>
+
                   </div>
                 </div>
                 
