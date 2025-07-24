@@ -250,7 +250,8 @@ const Contact = () => {
             Complete our comprehensive onboarding form to begin your journey to creator success
           </p>
         </div>
-
+    <div className="px-4 sm:px-6 md:px-8 lg:px-0">
+      <div className="max-w-5xl mx-auto">
         <div className="grid lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
             <div className="aqua-glass-dark rounded-3xl p-8 edge-glow">
@@ -718,6 +719,8 @@ const Contact = () => {
               </form>
             </div>
           </div>
+          </div>
+        </div>
           
           <div className="space-y-8">
             <div className="aqua-glass-dark rounded-3xl p-8 edge-glow">
