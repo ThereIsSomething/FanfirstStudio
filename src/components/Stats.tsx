@@ -102,7 +102,7 @@ const Stats = () => {
               These numbers represent real creators who chose to <span className="text-amber-400 font-bold">DOMINATE</span> rather than settle for average.
             </p>
             <button className="bg-gradient-to-r from-amber-400 to-yellow-500 text-black px-8 py-3 rounded-xl font-black hover:shadow-2xl hover:shadow-amber-500/50 transform hover:-translate-y-1 hover:scale-105 transition-all duration-300">
-              CLAIM YOUR ELITE+ STATUS NOW
+              CLAIM YOUR Creator+ STATUS NOW
             </button>
           </div>
         </div>
