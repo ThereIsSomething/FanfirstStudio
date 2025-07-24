@@ -73,21 +73,22 @@ const Hero = () => {
             
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 pt-8 animate-slide-up-fade delay-700">
-              {[
-                { value: "300%", label: t('hero.avgGrowth') },
-                { value: "$50M+", label: t('hero.revenue') },
-                { value: "500+", label: t('hero.creators') }
-              ].map((stat, index) => (
-                <div key={index} className="text-center group">
-                  <div className="text-xl sm:text-2xl md:text-3xl font-black aqua-text group-hover:scale-110 transition-transform duration-300">
-                    {stat.value}
-                  </div>
-                  <div className="text-xs sm:text-sm text-gray-400 font-medium tracking-wide">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
+  {[
+    { value: "300%", label: t('hero.avgGrowth') },
+    { value: "$50M+", label: t('hero.revenue') },
+    { value: "500+", label: t('hero.creators') }
+  ].map((stat, index) => (
+    <div key={index} className="text-center group">
+      <div className="text-xl sm:text-2xl md:text-3xl font-black aqua-text group-hover:scale-110 transition-transform duration-300 drop-shadow-[0_1px_4px_rgba(255,255,255,0.3)]">
+        {stat.value}
+      </div>
+      <div className="text-xs sm:text-sm text-gray-300 font-medium tracking-wide">
+        {stat.label}
+      </div>
+    </div>
+  ))}
+</div>
+
           </div>
           
           {/* Right Side - Interactive Cards */}
