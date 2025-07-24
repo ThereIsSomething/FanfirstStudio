@@ -217,9 +217,6 @@ const PricingPlans = () => {
             <div
               key={`${planType}-${plan.name}`}
               className={`relative group animate-slide-up-fade ${
-                plan.premium 
-                  ? 'edge-glow-premium' 
-                  : plan.popular 
                     ? 'edge-glow' 
                     : ''
               } ${plan.popular ? 'md:col-span-2 lg:col-span-1' : ''}`}
