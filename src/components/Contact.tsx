@@ -3,13 +3,13 @@ import { Send, Phone, Mail, MapPin, Clock, ChevronDown, Globe, Users, Briefcase,
 import { useLanguage } from '../contexts/LanguageContext';
 import { supabase } from '../../supabaseClient';
 import emailjs from '@emailjs/browser';
- 
+
 const Contact = () => {
   const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
+    phone: '', 
     countryCode: '+86',
     communicationLanguage: '',
     referralCode: '',
@@ -250,8 +250,7 @@ const Contact = () => {
             Complete our comprehensive onboarding form to begin your journey to creator success
           </p>
         </div>
-    <div className="px-4 sm:px-6 md:px-8 lg:px-0">
-      <div className="max-w-5xl mx-auto">
+
         <div className="grid lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
             <div className="aqua-glass-dark rounded-3xl p-8 edge-glow">
@@ -719,8 +718,6 @@ const Contact = () => {
               </form>
             </div>
           </div>
-          </div>
-        </div>
           
           <div className="space-y-8">
             <div className="aqua-glass-dark rounded-3xl p-8 edge-glow">
