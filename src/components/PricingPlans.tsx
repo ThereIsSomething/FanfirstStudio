@@ -10,7 +10,7 @@ const PricingPlans = () => {
     {
       name: "Starter Setup",
       description: "Perfect for new creators ready to launch professionally",
-      price: 99,
+      price: 499,
       icon: Sparkles,
       features: [
         "Complete account setup & optimization",
@@ -29,7 +29,7 @@ const PricingPlans = () => {
     {
       name: "Professional Launch",
       description: "Comprehensive setup for serious creators",
-      price: 199,
+      price: 999,
       icon: TrendingUp,
       features: [
         "Everything in Starter Setup",
@@ -47,9 +47,9 @@ const PricingPlans = () => {
       buttonText: "Launch Professional"
     },
     {
-      name: "Creator+",
+      name: "Elite Empire Builder",
       description: "The ultimate creator transformation package",
-      price: 499,
+      price: 2499,
       icon: Crown,
       features: [
         "Everything in Professional Launch",
@@ -65,7 +65,7 @@ const PricingPlans = () => {
       ],
       popular: false,
       premium: true,
-      buttonText: "Be an Creator+"
+      buttonText: "Build Empire"
     }
   ];
 
@@ -73,7 +73,7 @@ const PricingPlans = () => {
     {
       name: "Growth Partner",
       description: "Ongoing support for consistent growth",
-      price: 49,
+      price: 297,
       icon: Sparkles,
       features: [
         "Monthly strategy sessions",
@@ -92,7 +92,7 @@ const PricingPlans = () => {
     {
       name: "Success Accelerator",
       description: "Full-service management for serious creators",
-      price: 99,
+      price: 597,
       icon: TrendingUp,
       features: [
         "Everything in Growth Partner",
@@ -111,9 +111,9 @@ const PricingPlans = () => {
       buttonText: "Accelerate Success"
     },
     {
-      name: "Creator Executive",
+      name: "Elite Domination",
       description: "Premium management for top-tier creators",
-      price: 199,
+      price: 1197,
       icon: Crown,
       features: [
         "Everything in Success Accelerator",
@@ -216,14 +216,13 @@ const PricingPlans = () => {
           {currentPlans.map((plan, index) => (
             <div
   key={`${planType}-${plan.name}`}
-  className={`relative group animate-slide-up-fade transform transition-all duration-500 hover:scale-105 rounded-3xl ${
-  plan.popular
-    ? 'edge-glow-purple'
-    : plan.premium
-      ? 'edge-glow-yellow'
-      : ''
-} ${plan.popular ? 'md:col-span-2 lg:col-span-1' : ''}`}
-
+  className={`relative group animate-slide-up-fade transform transition-all duration-500 hover:scale-105 ${
+    plan.popular
+      ? 'ring-2 ring-purple-500/50 rounded-3xl shadow-purple-500/30 shadow-lg z-10'
+      : plan.premium
+        ? 'ring-2 ring-yellow-400/50 rounded-3xl shadow-yellow-400/30 shadow-lg z-10'
+        : ''
+  } ${plan.popular ? 'md:col-span-2 lg:col-span-1' : ''}`}
   style={{ animationDelay: `${index * 200}ms` }} 
 >
 
