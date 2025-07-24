@@ -216,15 +216,16 @@ const PricingPlans = () => {
           {currentPlans.map((plan, index) => (
             <div
   key={`${planType}-${plan.name}`}
-  className={`relative group animate-slide-up-fade overflow-visible ${
-    plan.premium
-      ? 'edge-glow-premium'
-      : plan.popular
-        ? 'edge-glow ring-2 ring-purple-500/50 scale-105 z-10'
+  className={`relative group animate-slide-up-fade transform transition-all duration-500 hover:scale-105 ${
+    plan.popular
+      ? 'ring-2 ring-purple-500/50 z-10'
+      : plan.premium
+        ? 'ring-2 ring-yellow-400/50 z-10'
         : ''
   } ${plan.popular ? 'md:col-span-2 lg:col-span-1' : ''}`}
   style={{ animationDelay: `${index * 200}ms` }}
 >
+
 
 
               <div className="aqua-glass-dark rounded-3xl p-6 sm:p-8 h-full lg:min-h-[720px] hover:ring-4 hover:ring-purple-400/30 transition-all duration-500 relative overflow-hidden flex flex-col">
