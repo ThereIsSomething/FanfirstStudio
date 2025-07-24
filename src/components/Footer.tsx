@@ -17,9 +17,6 @@ const Footer = () => {
       links: [
         { name: 'About Us', href: '/about', icon: Building },
         { name: 'Our Story', href: '/story', icon: Heart },
-        { name: 'Leadership Team', href: '/team', icon: Users },
-        { name: 'Careers', href: '/careers', icon: TrendingUp },
-        { name: 'Press & Media', href: '/press', icon: FileText }
       ]
     },
     {
@@ -29,7 +26,6 @@ const Footer = () => {
         { name: 'Pricing', href: '#pricing', icon: Award },
         { name: 'Success Stories', href: '#testimonials', icon: TrendingUp },
         { name: 'Customer Testimonials', href: '/testimonials', icon: MessageCircle },
-        { name: 'Product Updates', href: '/updates', icon: Globe }
       ]
     },
     {
@@ -38,8 +34,6 @@ const Footer = () => {
         { name: 'Help Center', href: '/help', icon: HelpCircle },
         { name: 'Documentation', href: '/docs', icon: BookOpen },
         { name: 'Contact Us', href: '#contact', icon: Mail },
-        { name: 'Live Chat Support', href: '/chat', icon: Headphones },
-        { name: 'Community Forum', href: '/community', icon: Users }
       ]
     },
     {
