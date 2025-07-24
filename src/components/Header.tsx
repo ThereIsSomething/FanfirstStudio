@@ -77,7 +77,6 @@ const Header = () => {
           </nav>
 
           <div className="hidden lg:flex items-center space-x-4">
-            <LanguageSelector />
             <button 
               onClick={() => {
                 const element = document.getElementById('contact');
