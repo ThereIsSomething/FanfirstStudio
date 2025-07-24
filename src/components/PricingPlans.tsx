@@ -1,5 +1,3 @@
-what do you think of pricing? 
-
 import React, { useState } from 'react';
 import { Check, Crown, Zap, Star, Sparkles, Shield, TrendingUp, DollarSign } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
