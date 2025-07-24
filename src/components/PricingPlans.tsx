@@ -216,9 +216,7 @@ const PricingPlans = () => {
           {currentPlans.map((plan, index) => (
             <div
   key={`${planType}-${plan.name}`}
-  className={`relative group animate-slide-up-fade transform transition-all duration-500 hover:scale-105 ${
-    
-  } ${plan.popular ? 'md:col-span-2 lg:col-span-1' : ''}`}
+  className={`relative group animate-slide-up-fade transform transition-all duration-500 hover:scale-105  ${plan.popular ? 'md:col-span-2 lg:col-span-1' : ''}`}
   style={{ animationDelay: `${index * 200}ms` }}
 >
 
