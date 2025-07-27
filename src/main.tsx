@@ -5,7 +5,7 @@ import './index.css';
 import { LanguageProvider } from './contexts/LanguageContext';
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+  <StrictMode> 
     <LanguageProvider>
       <App />
     </LanguageProvider>
