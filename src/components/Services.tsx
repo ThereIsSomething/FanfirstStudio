@@ -27,7 +27,7 @@ const PlatformIntegration = () => {
         </p>
       </div>
       
-      <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-10 gap-6">
+      <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-6">
         {platforms.map((platform, index) => (
           <div 
             key={platform.name}
